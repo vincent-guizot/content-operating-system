@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* =========================
+   BASE
+========================= */
+
+body {
+  @apply bg-[#F4E6C3] text-[#3A2E2A] font-mono;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.os-sidebar {
+  @apply w-64 h-screen bg-[#F4E6C3] border-r border-[#B08968] p-4;
+}
+
+.os-topbar {
+  @apply h-14 bg-[#F4E6C3] border-b border-[#B08968] flex items-center justify-between px-6;
+}
+
+.os-content {
+  @apply flex-1 p-6 bg-[#FDF6E3] overflow-auto;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.os-btn-primary {
+  @apply px-4 py-2 rounded text-sm font-medium transition
+  bg-[#F97316] text-white hover:bg-orange-600;
+}
+
+.os-btn-secondary {
+  @apply px-4 py-2 rounded text-sm font-medium transition
+  bg-[#B08968] text-white hover:bg-[#8f6c4e];
+}
+
+.os-btn-outline {
+  @apply px-4 py-2 rounded text-sm font-medium transition
+  border border-[#B08968] text-[#3A2E2A] hover:bg-[#f1e3c3];
+}
+
+/* =========================
+   CARD
+========================= */
+
+.os-card {
+  @apply bg-[#FDF6E3] border border-[#B08968] rounded p-5 shadow-sm;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.os-table {
+  @apply w-full border border-[#B08968] bg-[#FDF6E3] text-sm;
+}
+
+.os-table th {
+  @apply text-left p-3 border-b border-[#B08968] font-semibold;
+}
+
+.os-table td {
+  @apply p-3 border-b border-[#e3d3a9];
+}
+
+.os-table tr:hover {
+  @apply bg-[#f4e8c7];
+}
+
+/* =========================
+   INPUT
+========================= */
+
+.os-input {
+  @apply w-full border border-[#B08968] rounded px-3 py-2 bg-[#fffdf4];
+}
+
+.os-label {
+  @apply block text-sm mb-1;
+}
+
+/* =========================
+   BADGE
+========================= */
+
+.os-badge {
+  @apply text-xs px-2 py-1 rounded;
+}
+
+.os-badge-draft {
+  @apply text-xs px-2 py-1 rounded bg-gray-200 text-gray-700;
+}
+
+.os-badge-published {
+  @apply text-xs px-2 py-1 rounded bg-green-200 text-green-800;
+}
+
+/* =========================
+   SIDEBAR LINK
+========================= */
+
+.os-nav {
+  @apply block px-3 py-2 rounded text-sm hover:bg-[#e7d6b2];
+}
+
+.os-nav-active {
+  @apply bg-[#d9c39a] font-semibold;
+}
+
+.os-topbar {
+  @apply h-14
+  flex
+  items-center
+  justify-between
+  px-6
+  border-b
+  border-[#B08968]
+  bg-[#F4E6C3];
+}
