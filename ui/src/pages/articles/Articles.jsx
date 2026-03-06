@@ -1,8 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Pencil, Trash2 } from "lucide-react";
-
-import { articles } from "../../data/articles";
 
 import ArticleCard from "../../components/shared/ui/ArticleCard";
 import DataToolbar from "../../components/shared/ui/DataToolbar";
@@ -10,8 +8,28 @@ import DataTable from "../../components/shared/ui/DataTable";
 
 import useSearch from "../../hooks/useSearch";
 
+import { getArticles } from "../../services/article.service";
+
 export default function Articles() {
+  const [articles, setArticles] = useState([]);
   const [view, setView] = useState("grid");
+  const [loading, setLoading] = useState(true);
+
+  // FETCH ARTICLES
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const data = await getArticles();
+        setArticles(data);
+      } catch (err) {
+        console.error("Failed to fetch articles:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, []);
 
   const { query, setQuery, filteredData } = useSearch(articles, [
     "title",
@@ -43,6 +61,10 @@ export default function Articles() {
       ),
     },
   ];
+
+  if (loading) {
+    return <div className="text-sm opacity-70">Loading articles...</div>;
+  }
 
   return (
     <div>
