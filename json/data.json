@@ -236,34 +236,6 @@
       "createdAt": "2026-01-18",
       "updatedAt": "2026-01-20",
       "deletedAt": null
-    },
-    {
-      "id": "bfb957fe-50e3-4a65-962c-e691645f6a4f",
-      "title": "Belajar React Yuk",
-      "slug": "belajar-react-yuk",
-      "brandId": "3",
-      "categoryId": "7",
-      "tags": [
-        "belajar"
-      ],
-      "excerpt": "Belajar react dari basic ya",
-      "content": "<h1>Belajar React YUK</h1><p></p><p>Apa saja yang harus di perlukan:</p><ul><li><p>Belajar A</p></li><li><p>Belajar B</p></li><li><p>Belajar C</p></li></ul><p></p><p><strong>Mantap gas</strong></p>",
-      "thumbnail": "",
-      "coverImage": "",
-      "author": "Vincent Guizot",
-      "status": "Draft",
-      "visibility": "Public",
-      "views": 0,
-      "readingTime": 1,
-      "seoTitle": "Belajar React Yuk",
-      "seoDescription": "Belajar react dari basic ya",
-      "seoKeywords": [],
-      "canonicalUrl": "",
-      "publishedAt": "2026-03-06T17:34:15.374Z",
-      "scheduledAt": null,
-      "createdAt": "2026-03-06T17:34:15.374Z",
-      "updatedAt": "2026-03-06T17:34:15.374Z",
-      "deletedAt": null
     }
   ],
   "brands": [
@@ -383,62 +355,77 @@
   "tags": [
     {
       "id": "1",
+      "brandId": "1",
       "name": "React"
     },
     {
       "id": "2",
-      "name": "Node"
-    },
-    {
-      "id": "3",
+      "brandId": "1",
       "name": "JavaScript"
     },
     {
+      "id": "3",
+      "brandId": "1",
+      "name": "Frontend"
+    },
+    {
       "id": "4",
+      "brandId": "1",
       "name": "Redux"
     },
     {
       "id": "5",
+      "brandId": "1",
       "name": "TypeScript"
     },
     {
       "id": "6",
+      "brandId": "2",
       "name": "Docker"
     },
     {
       "id": "7",
+      "brandId": "2",
       "name": "SEO"
     },
     {
       "id": "8",
+      "brandId": "3",
       "name": "Fitness"
     },
     {
       "id": "9",
+      "brandId": "3",
       "name": "Protein"
     },
     {
       "id": "10",
+      "brandId": "4",
       "name": "API"
     },
     {
       "id": "11",
+      "brandId": "4",
       "name": "UI"
     },
     {
       "id": "12",
+      "brandId": "4",
       "name": "Design"
     },
     {
       "id": "13",
+      "brandId": "5",
       "name": "Database"
     },
     {
       "id": "14",
+      "brandId": "5",
       "name": "DevOps"
     },
     {
       "id": "15",
+      "brandId": "5",
       "name": "Web"
     }
   ],
