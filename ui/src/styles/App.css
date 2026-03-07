@@ -1,0 +1,37 @@
+/* =========================
+   ORANGE SCROLLS VARIABLES
+========================= */
+
+:root {
+  /* Background */
+  --os-bg-main: #f4e6c3;
+  --os-bg-content: #fdf6e3;
+  --os-bg-input: #fffdf4;
+
+  /* Text */
+  --os-text-main: #3a2e2a;
+
+  /* Border */
+  --os-border-main: #b08968;
+  --os-border-soft: #e3d3a9;
+
+  /* Buttons */
+  --os-primary: #f97316;
+  --os-primary-hover: #ea580c;
+
+  --os-secondary: #b08968;
+  --os-secondary-hover: #8f6c4e;
+
+  /* Navigation */
+  --os-nav-hover: #e7d6b2;
+  --os-nav-active: #d9c39a;
+
+  /* Table */
+  --os-table-hover: #f4e8c7;
+
+  /* Typography */
+  --os-blockquote: #6b5b53;
+
+  /* Code */
+  --os-code-bg: #1f2937;
+}
