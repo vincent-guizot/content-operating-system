@@ -350,6 +350,11 @@
       "name": "Cheese Cookies",
       "slug": "cheese-cookies",
       "brandId": "5"
+    },
+    {
+      "id": "dd27",
+      "name": "Web Design",
+      "brandId": "1"
     }
   ],
   "tags": [
@@ -377,11 +382,6 @@
       "id": "5",
       "brandId": "1",
       "name": "TypeScript"
-    },
-    {
-      "id": "6",
-      "brandId": "2",
-      "name": "Docker"
     },
     {
       "id": "7",
@@ -424,9 +424,16 @@
       "name": "DevOps"
     },
     {
-      "id": "15",
-      "brandId": "5",
-      "name": "Web"
+      "id": "bf4f",
+      "name": "Profile Company",
+      "brandId": "2",
+      "categoryId": ""
+    },
+    {
+      "id": "6fdd",
+      "name": "Web API",
+      "brandId": "2",
+      "categoryId": ""
     }
   ],
   "media": [

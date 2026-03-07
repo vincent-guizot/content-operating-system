@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "server": "npx json-server data.json --port 3000",
+    "server": "npx json-server data.json --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

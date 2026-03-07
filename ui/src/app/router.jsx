@@ -14,6 +14,7 @@ import InfoArticle from "../pages/articles/InfoArticle";
 import Brands from "../pages/brands/Brands";
 import CreateBrand from "../pages/brands/CreateBrand";
 import EditBrand from "../pages/brands/EditBrand";
+import DetailBrand from "../pages/brands/DetailBrand";
 
 // Categories
 import Categories from "../pages/categories/Categories";
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
       {
         path: "brands/:id/edit",
         element: <EditBrand />,
+      },
+      {
+        path: "brands/:id/detail",
+        element: <DetailBrand />,
       },
 
       // CATEGORIES

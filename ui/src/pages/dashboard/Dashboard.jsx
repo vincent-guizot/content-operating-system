@@ -64,11 +64,26 @@ export default function Dashboard() {
   ];
 
   const brands = [
-    "OrangeKode",
-    "Sadino Technology",
-    "Elevora Bootcamp",
-    "Protein Shack",
-    "Cookiefy",
+    {
+      id: 1,
+      name: "Orange Kode",
+    },
+    {
+      id: 2,
+      name: "Sadino Technology",
+    },
+    {
+      id: 3,
+      name: "Elevora Bootcamp",
+    },
+    {
+      id: 4,
+      name: "Protein Shack",
+    },
+    {
+      id: 5,
+      name: "Cookiefy",
+    },
   ];
 
   return (
@@ -87,10 +102,10 @@ export default function Dashboard() {
           {brands.map((brand, i) => (
             <Link
               key={i}
-              to="/brands"
+              to={`/brands/${brand.id}/detail`}
               className="text-xs border border-[#B08968] px-3 py-1 rounded hover:bg-[#e7d6b2]"
             >
-              {brand}
+              {brand.name}
             </Link>
           ))}
         </div>
