@@ -38,7 +38,18 @@ export default function Articles() {
   ]);
 
   const columns = [
-    { key: "title", label: "Title" },
+    {
+      key: "title",
+      label: "Title",
+      render: (row) => (
+        <Link
+          to={`/articles/${row.slug}`}
+          className="hover:text-blue-600 hover:text-semibold"
+        >
+          {row.title}
+        </Link>
+      ),
+    },
     { key: "brand", label: "Brand" },
     { key: "status", label: "Status" },
     { key: "author", label: "Author" },

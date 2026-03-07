@@ -16,6 +16,7 @@ export const getArticleById = async (id) => {
 export const createArticle = async (data) => {
   const res = await api.post("/articles", data);
   return res.data;
+  console.log("Creating article with data:", data);
 };
 
 // UPDATE ARTICLE

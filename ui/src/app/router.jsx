@@ -8,6 +8,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import Articles from "../pages/articles/Articles";
 import CreateArticle from "../pages/articles/CreateArticle";
 import EditArticle from "../pages/articles/EditArticle";
+import InfoArticle from "../pages/articles/InfoArticle";
 
 // Brands
 import Brands from "../pages/brands/Brands";
@@ -51,7 +52,10 @@ export const router = createBrowserRouter([
         path: "articles/:id/edit",
         element: <EditArticle />,
       },
-
+      {
+        path: "articles/:slug",
+        element: <InfoArticle />,
+      },
       // BRANDS
       {
         path: "brands",

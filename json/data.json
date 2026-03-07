@@ -1,337 +1,473 @@
 {
-   "articles": [
-      {
-         "id": 1,
-         "title": "React Performance Guide",
-         "slug": "react-performance-guide",
-         "brand": "OrangeKode",
-         "category": "Frontend",
-         "status": "Published",
-         "tags": [
-            "React",
-            "Performance"
-         ],
-         "excerpt": "Learn how to optimize React applications for better performance.",
-         "author": "Vincent Guizot",
-         "thumbnail": "https://picsum.photos/400/250?1",
-         "createdAt": "2026-03-01",
-         "updatedAt": "2026-03-03",
-         "views": 1240
-      },
-      {
-         "id": 2,
-         "title": "Node.js Architecture Tips",
-         "slug": "nodejs-architecture-tips",
-         "brand": "Sadino Technology",
-         "category": "Backend",
-         "status": "Draft",
-         "tags": [
-            "Node",
-            "Architecture"
-         ],
-         "excerpt": "Best practices when designing scalable Node.js systems.",
-         "author": "Vincent Guizot",
-         "thumbnail": "https://picsum.photos/400/250?2",
-         "createdAt": "2026-02-20",
-         "updatedAt": "2026-02-21",
-         "views": 845
-      },
-      {
-         "id": 3,
-         "title": "Understanding Redux Toolkit",
-         "slug": "understanding-redux-toolkit",
-         "brand": "OrangeKode",
-         "category": "Frontend",
-         "status": "Published",
-         "tags": [
-            "Redux",
-            "React"
-         ],
-         "excerpt": "Redux Toolkit simplifies Redux development significantly.",
-         "author": "Vincent Guizot",
-         "thumbnail": "https://picsum.photos/400/250?3",
-         "createdAt": "2026-02-10",
-         "updatedAt": "2026-02-12",
-         "views": 670
-      },
-      {
-         "id": 4,
-         "title": "Deploying Node Apps with Docker",
-         "slug": "deploy-node-docker",
-         "brand": "Sadino Technology",
-         "category": "Backend",
-         "status": "Published",
-         "tags": [
-            "Node",
-            "Docker"
-         ],
-         "excerpt": "Containerize your Node.js applications easily.",
-         "author": "Vincent Guizot",
-         "thumbnail": "https://picsum.photos/400/250?4",
-         "createdAt": "2026-02-01",
-         "updatedAt": "2026-02-03",
-         "views": 432
-      },
-      {
-         "id": 5,
-         "title": "Protein Diet for Muscle Gain",
-         "slug": "protein-diet-muscle",
-         "brand": "Protein Shack",
-         "category": "Health",
-         "status": "Published",
-         "tags": [
-            "Protein",
-            "Fitness"
-         ],
-         "excerpt": "A structured protein diet for gaining lean muscle.",
-         "author": "Vincent Guizot",
-         "thumbnail": "https://picsum.photos/400/250?5",
-         "createdAt": "2026-01-28",
-         "updatedAt": "2026-01-30",
-         "views": 511
-      },
-      {
-         "id": 6,
-         "title": "Beginner Guide to TypeScript",
-         "slug": "typescript-beginner-guide",
-         "brand": "OrangeKode",
-         "category": "Frontend",
-         "status": "Draft",
-         "tags": [
-            "TypeScript",
-            "JavaScript"
-         ],
-         "excerpt": "Why TypeScript makes JavaScript development safer.",
-         "author": "Vincent Guizot",
-         "thumbnail": "https://picsum.photos/400/250?6",
-         "createdAt": "2026-01-22",
-         "updatedAt": "2026-01-23",
-         "views": 301
-      },
-      {
-         "id": 7,
-         "title": "Building REST API with Express",
-         "slug": "express-rest-api",
-         "brand": "Sadino Technology",
-         "category": "Backend",
-         "status": "Published",
-         "tags": [
-            "Express",
-            "API"
-         ],
-         "excerpt": "Create scalable REST APIs using Express.js.",
-         "author": "Vincent Guizot",
-         "thumbnail": "https://picsum.photos/400/250?7",
-         "createdAt": "2026-01-18",
-         "updatedAt": "2026-01-20",
-         "views": 654
-      },
-      {
-         "id": 8,
-         "title": "Healthy Meal Prep Basics",
-         "slug": "healthy-meal-prep",
-         "brand": "Protein Shack",
-         "category": "Health",
-         "status": "Published",
-         "tags": [
-            "Meal",
-            "Fitness"
-         ],
-         "excerpt": "Plan your weekly healthy meals efficiently.",
-         "author": "Vincent Guizot",
-         "thumbnail": "https://picsum.photos/400/250?8",
-         "createdAt": "2026-01-10",
-         "updatedAt": "2026-01-12",
-         "views": 410
-      },
-      {
-         "id": 9,
-         "title": "Design Systems for Web Apps",
-         "slug": "design-system-web",
-         "brand": "Elevora Bootcamp",
-         "category": "UI/UX",
-         "status": "Published",
-         "tags": [
-            "Design",
-            "UI"
-         ],
-         "excerpt": "Build scalable design systems for modern web apps.",
-         "author": "Vincent Guizot",
-         "thumbnail": "https://picsum.photos/400/250?9",
-         "createdAt": "2026-01-05",
-         "updatedAt": "2026-01-07",
-         "views": 320
-      },
-      {
-         "id": 10,
-         "title": "SEO Basics for Developers",
-         "slug": "seo-basics-dev",
-         "brand": "OrangeKode",
-         "category": "Marketing",
-         "status": "Published",
-         "tags": [
-            "SEO",
-            "Web"
-         ],
-         "excerpt": "Simple SEO strategies every developer should know.",
-         "author": "Vincent Guizot",
-         "thumbnail": "https://picsum.photos/400/250?10",
-         "createdAt": "2025-12-28",
-         "updatedAt": "2025-12-30",
-         "views": 278
-      }
-   ],
-   "brands": [
-      {
-         "id": 1,
-         "name": "OrangeKode"
-      },
-      {
-         "id": 2,
-         "name": "Sadino Technology"
-      },
-      {
-         "id": 3,
-         "name": "Elevora Bootcamp"
-      },
-      {
-         "id": 4,
-         "name": "Protein Shack"
-      },
-      {
-         "id": 5,
-         "name": "Cookiefy"
-      }
-   ],
-   "categories": [
-      {
-         "id": 1,
-         "name": "Frontend"
-      },
-      {
-         "id": 2,
-         "name": "Backend"
-      },
-      {
-         "id": 3,
-         "name": "UI/UX"
-      },
-      {
-         "id": 4,
-         "name": "Health"
-      },
-      {
-         "id": 5,
-         "name": "Fitness"
-      },
-      {
-         "id": 6,
-         "name": "DevOps"
-      },
-      {
-         "id": 7,
-         "name": "API"
-      },
-      {
-         "id": 8,
-         "name": "Marketing"
-      },
-      {
-         "id": 9,
-         "name": "Database"
-      },
-      {
-         "id": 10,
-         "name": "JavaScript"
-      }
-   ],
-   "tags": [
-      {
-         "id": 1,
-         "name": "React"
-      },
-      {
-         "id": 2,
-         "name": "Node"
-      },
-      {
-         "id": 3,
-         "name": "JavaScript"
-      },
-      {
-         "id": 4,
-         "name": "Redux"
-      },
-      {
-         "id": 5,
-         "name": "TypeScript"
-      },
-      {
-         "id": 6,
-         "name": "Docker"
-      },
-      {
-         "id": 7,
-         "name": "SEO"
-      },
-      {
-         "id": 8,
-         "name": "Fitness"
-      },
-      {
-         "id": 9,
-         "name": "Protein"
-      },
-      {
-         "id": 10,
-         "name": "API"
-      },
-      {
-         "id": 11,
-         "name": "UI"
-      },
-      {
-         "id": 12,
-         "name": "Design"
-      },
-      {
-         "id": 13,
-         "name": "Database"
-      },
-      {
-         "id": 14,
-         "name": "DevOps"
-      },
-      {
-         "id": 15,
-         "name": "Web"
-      }
-   ],
-   "media": [
-      {
-         "id": 1,
-         "name": "hero-banner.jpg",
-         "url": "https://picsum.photos/600/400?1"
-      },
-      {
-         "id": 2,
-         "name": "react-cover.jpg",
-         "url": "https://picsum.photos/600/400?2"
-      },
-      {
-         "id": 3,
-         "name": "node-api.jpg",
-         "url": "https://picsum.photos/600/400?3"
-      },
-      {
-         "id": 4,
-         "name": "fitness-meal.jpg",
-         "url": "https://picsum.photos/600/400?4"
-      },
-      {
-         "id": 5,
-         "name": "design-system.jpg",
-         "url": "https://picsum.photos/600/400?5"
-      }
-   ]
+  "articles": [
+    {
+      "id": "1",
+      "title": "React Performance Guide",
+      "slug": "react-performance-guide",
+      "brand": "Orange Kode",
+      "category": "Frontend",
+      "tags": [
+        "React",
+        "Performance"
+      ],
+      "excerpt": "Learn how to optimize React applications for better performance.",
+      "content": "<h1>React Performance Guide</h1><p>React applications can become slow if components re-render unnecessarily.</p><h2>Why Performance Matters</h2><p>Performance directly affects user experience.</p><h3>Common Issues</h3><ul><li>Unnecessary re-renders</li><li>Large component trees</li><li>Heavy computations</li></ul><h2>Optimization</h2><h3>React.memo</h3><pre><code>const MyComponent = React.memo((props)=>{ return &lt;div&gt;{props.title}&lt;/div&gt; })</code></pre><blockquote>Measure performance first before optimizing.</blockquote><p>Use profiling tools to detect bottlenecks.</p>",
+      "thumbnail": "https://picsum.photos/400/250?1",
+      "coverImage": "https://picsum.photos/800/400?11",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": false,
+      "views": 1240,
+      "readingTime": 6,
+      "seoTitle": "React Performance Guide",
+      "seoDescription": "Improve React application performance with practical techniques.",
+      "seoKeywords": [
+        "React",
+        "Performance",
+        "Frontend"
+      ],
+      "canonicalUrl": "",
+      "publishedAt": "2026-03-01",
+      "scheduledAt": null,
+      "createdAt": "2026-03-01",
+      "updatedAt": "2026-03-03",
+      "deletedAt": null
+    },
+    {
+      "id": "2",
+      "title": "Node.js Architecture Tips",
+      "slug": "nodejs-architecture-tips",
+      "brand": "Sadino Technology",
+      "category": "Backend",
+      "tags": [
+        "Node",
+        "Architecture"
+      ],
+      "excerpt": "Best practices when designing scalable Node.js systems.",
+      "content": "<h1>Node.js Architecture Tips</h1><p>Designing scalable systems requires clear architecture.</p><h2>Layered Architecture</h2><ul><li>Routes</li><li>Controllers</li><li>Services</li><li>Repositories</li></ul><h3>Benefits</h3><p>Separating logic makes the application easier to maintain.</p><pre><code>class UserService { static async findAll(){ return await User.findAll() }}</code></pre><blockquote>Good architecture improves scalability.</blockquote>",
+      "thumbnail": "https://picsum.photos/400/250?2",
+      "coverImage": "https://picsum.photos/800/400?12",
+      "author": "Vincent Guizot",
+      "status": "Draft",
+      "visibility": "Public",
+      "featured": false,
+      "views": 845,
+      "readingTime": 7,
+      "seoTitle": "Node.js Architecture Tips",
+      "seoDescription": "Best architecture practices for building scalable Node.js systems.",
+      "seoKeywords": [
+        "Node",
+        "Architecture",
+        "Backend"
+      ],
+      "canonicalUrl": "",
+      "publishedAt": null,
+      "scheduledAt": null,
+      "createdAt": "2026-02-20",
+      "updatedAt": "2026-02-21",
+      "deletedAt": null
+    },
+    {
+      "id": "3",
+      "title": "Understanding Redux Toolkit",
+      "slug": "understanding-redux-toolkit",
+      "brand": "OrangeKode",
+      "category": "Frontend",
+      "tags": [
+        "Redux",
+        "React"
+      ],
+      "excerpt": "Redux Toolkit simplifies Redux development significantly.",
+      "content": "<h1>Understanding Redux Toolkit</h1><p>Redux Toolkit simplifies state management in React apps.</p><h2>Main Features</h2><ul><li>createSlice</li><li>configureStore</li><li>createAsyncThunk</li></ul><h3>Example Slice</h3><pre><code>const slice = createSlice({ name:'counter', initialState:{value:0}, reducers:{increment:(state)=>{state.value++}}})</code></pre><blockquote>Redux Toolkit is the recommended way to write Redux.</blockquote>",
+      "thumbnail": "https://picsum.photos/400/250?3",
+      "coverImage": "https://picsum.photos/800/400?13",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": false,
+      "views": 670,
+      "readingTime": 5,
+      "seoTitle": "Understanding Redux Toolkit",
+      "seoDescription": "Learn how Redux Toolkit simplifies Redux state management.",
+      "seoKeywords": [
+        "Redux",
+        "React",
+        "State Management"
+      ],
+      "canonicalUrl": "",
+      "publishedAt": "2026-02-10",
+      "scheduledAt": null,
+      "createdAt": "2026-02-10",
+      "updatedAt": "2026-02-12",
+      "deletedAt": null
+    },
+    {
+      "id": "4",
+      "title": "Deploying Node Apps with Docker",
+      "slug": "deploy-node-docker",
+      "brand": "Sadino Technology",
+      "category": "Backend",
+      "tags": [
+        "Node",
+        "Docker"
+      ],
+      "excerpt": "Containerize your Node.js applications easily.",
+      "content": "<h1>Deploy Node Apps with Docker</h1><p>Docker packages applications into containers.</p><h2>Benefits</h2><ul><li>Consistent environment</li><li>Easy deployment</li><li>Better scaling</li></ul><h3>Dockerfile Example</h3><pre><code>FROM node:20 WORKDIR /app COPY package.json . RUN npm install COPY . . CMD ['npm','start']</code></pre><blockquote>Containers eliminate environment inconsistencies.</blockquote>",
+      "thumbnail": "https://picsum.photos/400/250?4",
+      "coverImage": "https://picsum.photos/800/400?14",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": false,
+      "views": 432,
+      "readingTime": 6,
+      "seoTitle": "Deploy Node.js Apps with Docker",
+      "seoDescription": "Learn how to containerize Node.js apps using Docker.",
+      "seoKeywords": [
+        "Docker",
+        "Node",
+        "DevOps"
+      ],
+      "canonicalUrl": "",
+      "publishedAt": "2026-02-01",
+      "scheduledAt": null,
+      "createdAt": "2026-02-01",
+      "updatedAt": "2026-02-03",
+      "deletedAt": null
+    },
+    {
+      "id": "5",
+      "title": "Protein Diet for Muscle Gain",
+      "slug": "protein-diet-muscle",
+      "brand": "Protein Shack",
+      "category": "Health",
+      "tags": [
+        "Protein",
+        "Fitness"
+      ],
+      "excerpt": "A structured protein diet for gaining lean muscle.",
+      "content": "<h1>Protein Diet for Muscle Gain</h1><p>Protein supports muscle repair and growth.</p><h2>Recommended Intake</h2><p>Most athletes require 1.6g–2.2g protein per kg bodyweight.</p><h3>Best Sources</h3><ul><li>Chicken breast</li><li>Eggs</li><li>Fish</li><li>Beef</li></ul><blockquote>Combine high protein diet with strength training.</blockquote>",
+      "thumbnail": "https://picsum.photos/400/250?5",
+      "coverImage": "https://picsum.photos/800/400?15",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": true,
+      "views": 511,
+      "readingTime": 4,
+      "seoTitle": "Protein Diet for Muscle Gain",
+      "seoDescription": "A complete guide to protein diets for muscle growth.",
+      "seoKeywords": [
+        "Protein",
+        "Fitness",
+        "Diet"
+      ],
+      "canonicalUrl": "",
+      "publishedAt": "2026-01-28",
+      "scheduledAt": null,
+      "createdAt": "2026-01-28",
+      "updatedAt": "2026-01-30",
+      "deletedAt": null
+    },
+    {
+      "id": "6",
+      "title": "Beginner Guide to TypeScript",
+      "slug": "typescript-beginner-guide",
+      "brand": "OrangeKode",
+      "category": "Frontend",
+      "tags": [
+        "TypeScript",
+        "JavaScript"
+      ],
+      "excerpt": "Why TypeScript makes JavaScript development safer.",
+      "content": "<h1>Beginner Guide to TypeScript</h1><p>TypeScript adds static typing to JavaScript.</p><h2>Advantages</h2><ul><li>Type safety</li><li>Better tooling</li><li>Scalable code</li></ul><h3>Example</h3><pre><code>function greet(name:string):string{ return 'Hello '+name }</code></pre><blockquote>TypeScript catches bugs during development.</blockquote>",
+      "thumbnail": "https://picsum.photos/400/250?6",
+      "coverImage": "https://picsum.photos/800/400?16",
+      "author": "Vincent Guizot",
+      "status": "Draft",
+      "visibility": "Public",
+      "featured": false,
+      "views": 301,
+      "readingTime": 6,
+      "seoTitle": "Beginner Guide to TypeScript",
+      "seoDescription": "Learn why TypeScript improves JavaScript development.",
+      "seoKeywords": [
+        "TypeScript",
+        "JavaScript"
+      ],
+      "canonicalUrl": "",
+      "publishedAt": null,
+      "scheduledAt": null,
+      "createdAt": "2026-01-22",
+      "updatedAt": "2026-01-23",
+      "deletedAt": null
+    },
+    {
+      "id": "7",
+      "title": "Building REST API with Express",
+      "slug": "express-rest-api",
+      "brand": "Sadino Technology",
+      "category": "Backend",
+      "tags": [
+        "Express",
+        "API"
+      ],
+      "excerpt": "Create scalable REST APIs using Express.js.",
+      "content": "<h1>Building REST API with Express</h1><p>Express is a minimalist framework for Node.js.</p><h2>API Structure</h2><ul><li>Routes</li><li>Controllers</li><li>Services</li></ul><h3>Example Route</h3><pre><code>app.get('/users', async(req,res)=>{ const users=await User.findAll(); res.json(users) })</code></pre><blockquote>Separate business logic from routes.</blockquote>",
+      "thumbnail": "https://picsum.photos/400/250?7",
+      "coverImage": "https://picsum.photos/800/400?17",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": false,
+      "views": 654,
+      "readingTime": 7,
+      "seoTitle": "Build REST API with Express",
+      "seoDescription": "Create scalable APIs using Express.js.",
+      "seoKeywords": [
+        "Express",
+        "API",
+        "Node"
+      ],
+      "canonicalUrl": "",
+      "publishedAt": "2026-01-18",
+      "scheduledAt": null,
+      "createdAt": "2026-01-18",
+      "updatedAt": "2026-01-20",
+      "deletedAt": null
+    },
+    {
+      "id": "bfb957fe-50e3-4a65-962c-e691645f6a4f",
+      "title": "Belajar React Yuk",
+      "slug": "belajar-react-yuk",
+      "brandId": "3",
+      "categoryId": "7",
+      "tags": [
+        "belajar"
+      ],
+      "excerpt": "Belajar react dari basic ya",
+      "content": "<h1>Belajar React YUK</h1><p></p><p>Apa saja yang harus di perlukan:</p><ul><li><p>Belajar A</p></li><li><p>Belajar B</p></li><li><p>Belajar C</p></li></ul><p></p><p><strong>Mantap gas</strong></p>",
+      "thumbnail": "",
+      "coverImage": "",
+      "author": "Vincent Guizot",
+      "status": "Draft",
+      "visibility": "Public",
+      "views": 0,
+      "readingTime": 1,
+      "seoTitle": "Belajar React Yuk",
+      "seoDescription": "Belajar react dari basic ya",
+      "seoKeywords": [],
+      "canonicalUrl": "",
+      "publishedAt": "2026-03-06T17:34:15.374Z",
+      "scheduledAt": null,
+      "createdAt": "2026-03-06T17:34:15.374Z",
+      "updatedAt": "2026-03-06T17:34:15.374Z",
+      "deletedAt": null
+    }
+  ],
+  "brands": [
+    {
+      "id": "1",
+      "name": "Orange Kode"
+    },
+    {
+      "id": "2",
+      "name": "Sadino Technology"
+    },
+    {
+      "id": "3",
+      "name": "Elevora Bootcamp"
+    },
+    {
+      "id": "4",
+      "name": "Protein Shack"
+    },
+    {
+      "id": "5",
+      "name": "Cookiefy"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Frontend",
+      "slug": "frontend",
+      "brandId": "1"
+    },
+    {
+      "id": "2",
+      "name": "Backend",
+      "slug": "backend",
+      "brandId": "1"
+    },
+    {
+      "id": "3",
+      "name": "Fullstack",
+      "slug": "fullstack",
+      "brandId": "1"
+    },
+    {
+      "id": "4",
+      "name": "Company Profile",
+      "slug": "company-profile",
+      "brandId": "2"
+    },
+    {
+      "id": "5",
+      "name": "Web Development",
+      "slug": "web-development",
+      "brandId": "2"
+    },
+    {
+      "id": "6",
+      "name": "UI/UX Design",
+      "slug": "ui-ux",
+      "brandId": "2"
+    },
+    {
+      "id": "7",
+      "name": "Programming Basics",
+      "slug": "programming-basics",
+      "brandId": "3"
+    },
+    {
+      "id": "8",
+      "name": "Web Development",
+      "slug": "web-development",
+      "brandId": "3"
+    },
+    {
+      "id": "9",
+      "name": "Career Tips",
+      "slug": "career-tips",
+      "brandId": "3"
+    },
+    {
+      "id": "10",
+      "name": "Protein Meals",
+      "slug": "protein-meals",
+      "brandId": "4"
+    },
+    {
+      "id": "11",
+      "name": "Healthy Diet",
+      "slug": "healthy-diet",
+      "brandId": "4"
+    },
+    {
+      "id": "12",
+      "name": "Fitness Nutrition",
+      "slug": "fitness-nutrition",
+      "brandId": "4"
+    },
+    {
+      "id": "13",
+      "name": "Chocolate Cookies",
+      "slug": "chocolate-cookies",
+      "brandId": "5"
+    },
+    {
+      "id": "14",
+      "name": "Strawberry Cookies",
+      "slug": "strawberry-cookies",
+      "brandId": "5"
+    },
+    {
+      "id": "15",
+      "name": "Cheese Cookies",
+      "slug": "cheese-cookies",
+      "brandId": "5"
+    }
+  ],
+  "tags": [
+    {
+      "id": "1",
+      "name": "React"
+    },
+    {
+      "id": "2",
+      "name": "Node"
+    },
+    {
+      "id": "3",
+      "name": "JavaScript"
+    },
+    {
+      "id": "4",
+      "name": "Redux"
+    },
+    {
+      "id": "5",
+      "name": "TypeScript"
+    },
+    {
+      "id": "6",
+      "name": "Docker"
+    },
+    {
+      "id": "7",
+      "name": "SEO"
+    },
+    {
+      "id": "8",
+      "name": "Fitness"
+    },
+    {
+      "id": "9",
+      "name": "Protein"
+    },
+    {
+      "id": "10",
+      "name": "API"
+    },
+    {
+      "id": "11",
+      "name": "UI"
+    },
+    {
+      "id": "12",
+      "name": "Design"
+    },
+    {
+      "id": "13",
+      "name": "Database"
+    },
+    {
+      "id": "14",
+      "name": "DevOps"
+    },
+    {
+      "id": "15",
+      "name": "Web"
+    }
+  ],
+  "media": [
+    {
+      "id": "1",
+      "name": "hero-banner.jpg",
+      "url": "https://picsum.photos/600/400?1"
+    },
+    {
+      "id": "2",
+      "name": "react-cover.jpg",
+      "url": "https://picsum.photos/600/400?2"
+    },
+    {
+      "id": "3",
+      "name": "node-api.jpg",
+      "url": "https://picsum.photos/600/400?3"
+    },
+    {
+      "id": "4",
+      "name": "fitness-meal.jpg",
+      "url": "https://picsum.photos/600/400?4"
+    },
+    {
+      "id": "5",
+      "name": "design-system.jpg",
+      "url": "https://picsum.photos/600/400?5"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

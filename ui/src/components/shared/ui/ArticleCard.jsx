@@ -57,13 +57,19 @@ export default function ArticleCard({ article }) {
 
         <div className="flex justify-end gap-3 text-xs mt-3">
           <Link
+            to={`/articles/${article.slug}`}
+            className="flex items-center gap-1 text-blue-600 opacity-70 hover:opacity-100"
+          >
+            <Eye size={14} />
+            View
+          </Link>
+          <Link
             to={`/articles/${article.id}/edit`}
             className="flex items-center gap-1 opacity-70 hover:opacity-100"
           >
             <Pencil size={14} />
             Edit
           </Link>
-
           <button className="flex items-center gap-1 text-red-600 opacity-70 hover:opacity-100">
             <Trash2 size={14} />
             Delete
