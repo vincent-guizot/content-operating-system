@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { getBrands } from "../../services/";
-import { createCategory } from "../../services/";
+import { getBrands, createCategory } from "../../services";
 
-export default function CreateCategory() {
-  const navigate = useNavigate();
-
+export default function CreateCategoryForm({ onSuccess }) {
   const [brands, setBrands] = useState([]);
 
   const [form, setForm] = useState({
     name: "",
-    slug: "",
     brandId: "",
   });
 
@@ -35,64 +30,45 @@ export default function CreateCategory() {
 
     await createCategory(form);
 
-    navigate("/categories");
+    onSuccess?.();
   };
 
   return (
-    <div className="os-card max-w-lg">
-      <h1 className="text-xl font-semibold mb-6">Create Category</h1>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      {/* CATEGORY NAME */}
+      <div>
+        <label className="os-label">Category Name</label>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* NAME */}
-        <div>
-          <label className="os-label">Name</label>
+        <input
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          className="os-input"
+          placeholder="Frontend"
+        />
+      </div>
 
-          <input
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            className="os-input"
-            placeholder="Frontend"
-          />
-        </div>
+      {/* BRAND */}
+      <div>
+        <label className="os-label">Brand</label>
 
-        {/* SLUG */}
-        <div>
-          <label className="os-label">Slug</label>
+        <select
+          name="brandId"
+          value={form.brandId}
+          onChange={handleChange}
+          className="os-input"
+        >
+          <option value="">Select Brand</option>
 
-          <input
-            name="slug"
-            value={form.slug}
-            onChange={handleChange}
-            className="os-input"
-            placeholder="frontend"
-          />
-        </div>
+          {brands.map((brand) => (
+            <option key={brand.id} value={brand.id}>
+              {brand.name}
+            </option>
+          ))}
+        </select>
+      </div>
 
-        {/* BRAND SELECT */}
-        <div>
-          <label className="os-label">Brand</label>
-
-          <select
-            name="brandId"
-            value={form.brandId}
-            onChange={handleChange}
-            className="os-input"
-          >
-            <option value="">Select Brand</option>
-
-            {brands.map((brand) => (
-              <option key={brand.id} value={brand.id}>
-                {brand.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <button type="submit" className="os-btn-primary">
-          Save Category
-        </button>
-      </form>
-    </div>
+      <button className="os-btn-primary">Save Category</button>
+    </form>
   );
 }
