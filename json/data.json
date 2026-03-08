@@ -355,6 +355,16 @@
       "id": "dd27",
       "name": "Web Design",
       "brandId": "1"
+    },
+    {
+      "id": "874b",
+      "name": "UI/UX",
+      "brandId": "1"
+    },
+    {
+      "id": "bdbf",
+      "name": "Javascript Fundamental",
+      "brandId": "1"
     }
   ],
   "tags": [
@@ -433,6 +443,18 @@
       "id": "6fdd",
       "name": "Web API",
       "brandId": "2",
+      "categoryId": ""
+    },
+    {
+      "id": "e199",
+      "name": "Design",
+      "brandId": "1",
+      "categoryId": ""
+    },
+    {
+      "id": "3103",
+      "name": "Fundamental",
+      "brandId": "1",
       "categoryId": ""
     }
   ],

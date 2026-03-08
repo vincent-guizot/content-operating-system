@@ -1,39 +1,103 @@
 import { useEffect, useState } from "react";
-import { Bell, Settings, User } from "lucide-react";
+import { Bell, Palette } from "lucide-react";
 
 export default function TopBar() {
+  const [theme, setTheme] = useState("classic");
+
+  // Load theme saat pertama kali render
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "classic";
+    setTheme(savedTheme);
+
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }, []);
+
+  const handleThemeChange = (e) => {
+    const selectedTheme = e.target.value;
+    setTheme(selectedTheme);
+
+    document.documentElement.setAttribute("data-theme", selectedTheme);
+    localStorage.setItem("theme", selectedTheme);
+  };
+
   return (
     <header className="os-topbar">
       {/* LEFT */}
+
       <div className="flex items-center gap-3">
         <img src="/os-logo.png" alt="Orange Scrolls" className="w-8 h-8" />
-
-        {/* <h1 className="font-bold text-lg">Orange Scrolls</h1> */}
       </div>
 
       {/* CENTER */}
+
       <TypewriterText text="Content Operating System..." />
 
       {/* RIGHT */}
-      <div className="flex items-center gap-4">
-        <IconButton>
+
+      <div className="flex items-center gap-3">
+        {/* THEME DROPDOWN */}
+
+        <div className="relative flex items-center">
+          <Palette size={18} className="absolute left-2 pointer-events-none" />
+
+          <select
+            value={theme}
+            onChange={handleThemeChange}
+            className="
+              appearance-none
+              pl-7
+              pr-4
+              py-1
+              text-sm
+              bg-transparent
+              border
+              border-[var(--os-border-main)]
+              rounded
+              cursor-pointer
+              hover:bg-[var(--os-nav-hover)]
+            "
+          >
+            <option value="classic">Classic</option>
+            <option value="modern">Modern</option>
+          </select>
+        </div>
+
+        {/* NOTIFICATIONS */}
+
+        <button
+          disabled
+          className="
+            relative
+            p-2
+            rounded
+            opacity-60
+            cursor-not-allowed
+          "
+        >
           <Bell size={18} />
-        </IconButton>
 
-        <IconButton>
-          <Settings size={18} />
-        </IconButton>
-
-        <IconButton>
-          <User size={18} />
-        </IconButton>
+          <span
+            className="
+              absolute
+              -top-1
+              -right-1
+              text-[9px]
+              bg-orange-500
+              text-white
+              px-1
+              rounded
+            "
+          >
+            Soon
+          </span>
+        </button>
       </div>
     </header>
   );
 }
 
 /* =========================
-   TYPEWRITER COMPONENT
+   TYPEWRITER
 ========================= */
 
 function TypewriterText({ text }) {
@@ -52,7 +116,7 @@ function TypewriterText({ text }) {
     } else if (!isDeleting && index === text.length) {
       timeout = setTimeout(() => {
         setIsDeleting(true);
-      }, 10500); // pause setelah selesai
+      }, 3000);
     } else if (isDeleting && index > 0) {
       timeout = setTimeout(() => {
         setDisplayText((prev) => prev.slice(0, -1));
@@ -66,28 +130,9 @@ function TypewriterText({ text }) {
   }, [index, isDeleting, text]);
 
   return (
-    <div className="text-sm opacity-80 tracking-wide">
+    <div className="text-sm opacity-80 tracking-wide font-medium">
       {displayText}
-      <span className="animate-pulse">|</span>
+      <span className="animate-pulse ml-1">|</span>
     </div>
-  );
-}
-
-/* =========================
-   ICON BUTTON
-========================= */
-
-function IconButton({ children }) {
-  return (
-    <button
-      className="
-      p-2
-      rounded
-      hover:bg-[#e7d6b2]
-      transition
-      "
-    >
-      {children}
-    </button>
   );
 }

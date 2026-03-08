@@ -5,7 +5,7 @@ import TopBar from "./TopBar";
 
 export default function MainLayout() {
   return (
-    <div className="flex h-screen font-mono">
+    <div className="flex h-screen ">
       <LeftBar />
 
       <div className="flex flex-col flex-1">

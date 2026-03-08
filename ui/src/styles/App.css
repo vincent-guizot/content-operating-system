@@ -3,6 +3,9 @@
 ========================= */
 
 :root {
+  /* Font */
+  --os-font-main: "Consolas", ui-monospace, monospace;
+
   /* Background */
   --os-bg-main: #f4e6c3;
   --os-bg-content: #fdf6e3;
@@ -34,4 +37,11 @@
 
   /* Code */
   --os-code-bg: #1f2937;
+}
+/* =========================
+   MODERN THEME
+========================= */
+
+[data-theme="modern"] {
+  --os-font-main: "Lato", sans-serif;
 }

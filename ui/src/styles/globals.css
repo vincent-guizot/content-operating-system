@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
@@ -8,7 +10,7 @@
 body {
   background: var(--os-bg-main);
   color: var(--os-text-main);
-  @apply font-mono;
+  font-family: var(--os-font-main);
 }
 
 /* =========================
@@ -19,7 +21,7 @@ body {
   background: var(--os-bg-main);
   border-color: var(--os-border-main);
 
-  @apply w-64 h-screen border-r p-4;
+  @apply w-64 h-screen border-r p-4 overflow-y-auto;
 }
 
 .os-topbar {

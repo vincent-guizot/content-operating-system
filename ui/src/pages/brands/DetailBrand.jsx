@@ -3,6 +3,11 @@ import { useParams, Link } from "react-router-dom";
 
 import PopUp from "../../components/shared/feedback/PopUp";
 
+import CreateCategoryForm from "../categories/CreateCategory";
+import CreateTagForm from "../tags/CreateTag";
+import UploadMediaForm from "../media/UploadMedia";
+import Toast from "../../components/shared/feedback/Toast";
+
 import {
   getBrands,
   getArticles,
@@ -21,7 +26,17 @@ export default function DetailBrand() {
   const [tags, setTags] = useState([]);
   const [media, setMedia] = useState([]);
 
+  const [toast, setToast] = useState({
+    show: false,
+    type: "success",
+    message: "",
+  });
+
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const [openCategory, setOpenCategory] = useState(false);
+  const [openTag, setOpenTag] = useState(false);
+  const [openMedia, setOpenMedia] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,6 +63,33 @@ export default function DetailBrand() {
     return <div>Loading brand...</div>;
   }
 
+  const createCategorySuccess = () => {
+    setOpenCategory(false);
+    setToast({
+      show: true,
+      type: "success",
+      message: "Category created",
+    });
+  };
+
+  const createTagSuccess = () => {
+    setOpenTag(false);
+    setToast({
+      show: true,
+      type: "success",
+      message: "Tag created",
+    });
+  };
+
+  const uploadMediaSuccess = () => {
+    setOpenMedia(false);
+    setToast({
+      show: true,
+      type: "success",
+      message: "Media uploaded",
+    });
+  };
+
   const published = articles.filter((a) => a.status === "Published");
   const drafts = articles.filter((a) => a.status === "Draft");
 
@@ -55,10 +97,44 @@ export default function DetailBrand() {
     <div className="space-y-10">
       {/* HEADER */}
 
-      <div>
-        <h1 className="text-3xl font-bold mb-2">{brand.name}</h1>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          {/* BRAND LOGO */}
 
-        <p className="text-sm opacity-70">Brand dashboard overview</p>
+          <img
+            src={`/brandlogo/${brand.slug}.png`}
+            alt={brand.name}
+            className="w-12 h-12 object-contain"
+          />
+
+          <div>
+            <h1 className="text-3xl font-bold">{brand.name}</h1>
+            <p className="text-sm opacity-70">Brand dashboard overview</p>
+          </div>
+        </div>
+
+        {/* ACTION BUTTONS */}
+
+        <div className="flex gap-3">
+          <Link to="/articles/create" className="os-btn-primary">
+            + Create Article
+          </Link>
+
+          <button
+            onClick={() => setOpenCategory(true)}
+            className="os-btn-outline"
+          >
+            + Create Category
+          </button>
+
+          <button onClick={() => setOpenTag(true)} className="os-btn-outline">
+            + Create Tag
+          </button>
+
+          <button onClick={() => setOpenMedia(true)} className="os-btn-outline">
+            + Upload Media
+          </button>
+        </div>
       </div>
 
       {/* ARTICLES */}
@@ -192,6 +268,59 @@ export default function DetailBrand() {
           <img src={selectedImage} className="w-full rounded" />
         )}
       </PopUp>
+
+      {/* CREATE CATEGORY POPUP */}
+
+      <PopUp
+        isOpen={openCategory}
+        onClose={() => setOpenCategory(false)}
+        title="Create Category"
+      >
+        <CreateCategoryForm brandId={id} onSuccess={createCategorySuccess} />
+      </PopUp>
+
+      {/* CREATE TAG POPUP */}
+
+      <PopUp
+        isOpen={openTag}
+        onClose={() => setOpenTag(false)}
+        title="Create Tag"
+      >
+        <CreateTagForm brandId={id} onSuccess={createTagSuccess} />
+      </PopUp>
+
+      {/* UPLOAD MEDIA POPUP */}
+
+      <PopUp
+        isOpen={openMedia}
+        onClose={() => setOpenMedia(false)}
+        title="Upload Media"
+      >
+        <UploadMediaForm brandId={id} onSuccess={uploadMediaSuccess} />
+      </PopUp>
+      {/* UPLOAD MEDIA POPUP */}
+
+      <PopUp
+        isOpen={openMedia}
+        onClose={() => setOpenMedia(false)}
+        title="Upload Media"
+      >
+        <UploadMediaForm brandId={id} onSuccess={uploadMediaSuccess} />
+      </PopUp>
+
+      {/* TOAST */}
+
+      <Toast
+        show={toast.show}
+        type={toast.type}
+        message={toast.message}
+        onClose={() =>
+          setToast((prev) => ({
+            ...prev,
+            show: false,
+          }))
+        }
+      />
     </div>
   );
 }
