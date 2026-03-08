@@ -1,0 +1,107 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Brand {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  logoImage   String?
+
+  categories  Category[]
+  tags        Tag[]
+  articles    Article[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String
+  slug      String
+
+  brandId   Int
+  brand     Brand    @relation(fields: [brandId], references: [id])
+
+  articles  Article[]
+
+  createdAt DateTime @default(now())
+}
+
+model Tag {
+  id        Int      @id @default(autoincrement())
+  name      String
+
+  brandId   Int
+  brand     Brand    @relation(fields: [brandId], references: [id])
+
+  articles  ArticleTag[]
+
+  createdAt DateTime @default(now())
+}
+
+model Article {
+  id            Int       @id @default(autoincrement())
+
+  title         String
+  slug          String    @unique
+
+  brandId       Int
+  brand         Brand     @relation(fields: [brandId], references: [id])
+
+  categoryId    Int
+  category      Category  @relation(fields: [categoryId], references: [id])
+
+  excerpt       String?
+  content       String
+
+  thumbnail     String?
+  coverImage    String?
+
+  author        String
+
+  status        String
+  visibility    String
+
+  featured      Boolean   @default(false)
+
+  views         Int       @default(0)
+  readingTime   Int?
+
+  seoTitle      String?
+  seoDescription String?
+  canonicalUrl  String?
+
+  publishedAt   DateTime?
+  scheduledAt   DateTime?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  deletedAt     DateTime?
+
+  tags          ArticleTag[]
+}
+
+model ArticleTag {
+  articleId Int
+  tagId     Int
+
+  article   Article @relation(fields: [articleId], references: [id])
+  tag       Tag     @relation(fields: [tagId], references: [id])
+
+  @@id([articleId, tagId])
+}
+
+model Media {
+  id        Int      @id @default(autoincrement())
+  name      String
+  url       String
+
+  createdAt DateTime @default(now())
+}
