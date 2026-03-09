@@ -152,7 +152,7 @@ export default function Brands() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filteredData.map((brand) => {
             const articleCount = articles.filter(
-              (a) => a.brand === brand.name,
+              (a) => a.brandId === brand.id,
             ).length;
 
             const categoryCount = categories.filter(

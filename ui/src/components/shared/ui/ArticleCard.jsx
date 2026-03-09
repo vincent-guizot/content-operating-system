@@ -33,7 +33,7 @@ export default function ArticleCard({ article, setDeleteTarget }) {
         <h2 className="font-semibold text-lg mb-1">{article.title}</h2>
 
         <p className="text-xs opacity-70 mb-2">
-          {article.brand} • {article.category}
+          {article.brand?.name} • {article.category?.name}
         </p>
 
         {/* STATUS */}

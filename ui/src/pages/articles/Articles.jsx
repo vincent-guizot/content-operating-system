@@ -13,7 +13,7 @@ import ConfirmDialog from "../../components/shared/feedback/ConfirmDialog";
 
 import useSearch from "../../hooks/useSearch";
 
-import { getArticles, deleteArticle } from "../../services/article.service";
+import { getArticles, deleteArticle } from "../../services";
 
 export default function Articles() {
   const [articles, setArticles] = useState([]);
@@ -75,7 +75,6 @@ export default function Articles() {
       }
     }
   };
-
   const columns = [
     {
       key: "title",
@@ -90,33 +89,28 @@ export default function Articles() {
       ),
     },
 
-    { key: "brand", label: "Brand" },
-    { key: "status", label: "Status" },
-    { key: "author", label: "Author" },
-    { key: "createdAt", label: "Date" },
-    { key: "views", label: "Views" },
+    {
+      key: "brand",
+      label: "Brand",
+      render: (row) => row.brand?.name,
+    },
 
     {
-      key: "actions",
-      label: "Actions",
-      render: (row) => (
-        <div className="flex gap-3 items-center">
-          <Link
-            to={`/articles/${row.id}/edit`}
-            className="text-gray-700 hover:text-blue-600"
-          >
-            <Pencil size={16} />
-          </Link>
-
-          <button
-            onClick={() => setDeleteTarget(row)}
-            className="text-red-600 hover:text-red-800"
-          >
-            <Trash2 size={16} />
-          </button>
-        </div>
-      ),
+      key: "category",
+      label: "Category",
+      render: (row) => row.category?.name,
     },
+
+    { key: "status", label: "Status" },
+    { key: "author", label: "Author" },
+
+    {
+      key: "createdAt",
+      label: "Date",
+      render: (row) => new Date(row.createdAt).toLocaleDateString(),
+    },
+
+    { key: "views", label: "Views" },
   ];
 
   if (loading) {
