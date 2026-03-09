@@ -29,6 +29,12 @@ export class ArticlesController {
       return this.service.findAll()
    }
 
+   // GET SINGLE BY SLUG
+   @Get('slug/:slug')
+   findOneBySlug(@Param('slug') slug: string) {
+      return this.service.findOneBySlug(slug)
+   }
+
    // GET SINGLE
    @Get(':id')
    findOne(@Param('id') id: string) {

@@ -20,7 +20,7 @@ export class CategoriesService {
             brand: true
          },
          orderBy: {
-            id: 'desc'
+            id: 'asc'
          }
       })
    }

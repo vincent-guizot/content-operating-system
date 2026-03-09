@@ -20,7 +20,7 @@ export class TagsService {
             brand: true
          },
          orderBy: {
-            id: 'desc'
+            id: 'asc'
          }
       })
    }

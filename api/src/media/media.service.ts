@@ -37,7 +37,7 @@ export class MediaService {
    async findAll() {
       return this.prisma.media.findMany({
          orderBy: {
-            createdAt: "desc"
+            createdAt: "asc"
          }
       })
    }

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 
-import { getArticles, deleteArticle } from "../../services/article.service";
-import { Pencil, Trash } from "lucide-react/dist/cjs/lucide-react";
+import { deleteArticle, getArticleBySlug } from "../../services";
+import { Pencil, Trash } from "lucide-react";
 
 export default function ArticleDetail() {
   const { slug } = useParams();
@@ -12,9 +12,9 @@ export default function ArticleDetail() {
 
   useEffect(() => {
     const fetchArticle = async () => {
-      const data = await getArticles();
-      const found = data.find((a) => a.slug === slug);
-      setArticle(found);
+      const data = await getArticleBySlug(slug);
+      console.log(data);
+      setArticle(data);
     };
 
     fetchArticle();
@@ -35,7 +35,7 @@ export default function ArticleDetail() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto py-10">
+    <div className="max-w-4xl mx-auto py-5">
       {/* HEADER */}
       <div className="flex justify-between items-start mb-6">
         <h1 className="text-4xl font-bold">{article.title}</h1>
@@ -44,7 +44,7 @@ export default function ArticleDetail() {
         <div className="flex gap-3">
           <Link
             to={`/articles/edit/${article.slug}`}
-            className="flex items-center gap-2 px-4 py-2 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="flex items-center gap-2 px-4 py-2 os-btn-outline"
           >
             <Pencil className="w-4 h-4" />
             Edit
@@ -52,7 +52,7 @@ export default function ArticleDetail() {
 
           <button
             onClick={handleDelete}
-            className="flex items-center gap-2 px-4 py-2 text-sm bg-red-600 text-white rounded hover:bg-red-700"
+            className="flex items-center gap-2 px-4 py-2 os-btn-primary"
           >
             <Trash className="w-4 h-4" />
             Delete
@@ -76,9 +76,9 @@ export default function ArticleDetail() {
 
       {/* TAGS */}
       <div className="flex flex-wrap gap-2 mb-6">
-        {article.tags?.map((tag) => (
-          <span key={tag} className="px-3 py-1 text-xs bg-gray-200 rounded">
-            #{tag}
+        {article.tags?.map((item) => (
+          <span key={item.id} className="px-3 py-1 text-xs bg-gray-200 rounded">
+            #{item.name}
           </span>
         ))}
       </div>
@@ -92,10 +92,10 @@ export default function ArticleDetail() {
       {/* INFO */}
       <div className="border-t mt-10 pt-6 text-sm space-y-2">
         <p>
-          <b>Brand:</b> {article.brand}
+          <b>Brand:</b> {article.brand?.name}
         </p>
         <p>
-          <b>Category:</b> {article.category}
+          <b>Category:</b> {article.category?.name}
         </p>
         <p>
           <b>Status:</b> {article.status}

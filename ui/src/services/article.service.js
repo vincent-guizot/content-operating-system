@@ -30,3 +30,9 @@ export const deleteArticle = async (id) => {
   const res = await api.delete(`/articles/${id}`);
   return res.data;
 };
+
+// GET SINGLE ARTICLE BY SLUG
+export const getArticleBySlug = async (slug) => {
+  const res = await api.get(`/articles/slug/${slug}`);
+  return res.data;
+};

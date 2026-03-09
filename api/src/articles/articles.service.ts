@@ -43,7 +43,7 @@ export class ArticlesService {
             }
          },
          orderBy: {
-            createdAt: 'desc'
+            createdAt: 'asc'
          }
       })
    }
@@ -59,6 +59,28 @@ export class ArticlesService {
             }
          }
       })
+   }
+
+   async findOneBySlug(slug: string) {
+      const article = await this.prisma.article.findUnique({
+         where: { slug },
+         include: {
+            brand: true,
+            category: true,
+            tags: {
+               include: { tag: true }
+            }
+         }
+      })
+
+      if (!article) {
+         throw new Error("Article not found")
+      }
+
+      return {
+         ...article,
+         tags: article.tags.map((t) => t.tag)
+      }
    }
 
    async update(id: number, data: UpdateArticleDto) {
