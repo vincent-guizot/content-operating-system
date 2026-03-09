@@ -14,10 +14,11 @@ import {
   getCategories,
   getTags,
   getMedia,
+  getBrandById,
 } from "../../services";
 
 export default function DetailBrand() {
-  const { id } = useParams();
+  const id = +useParams().id;
 
   const [brand, setBrand] = useState(null);
 
@@ -40,15 +41,13 @@ export default function DetailBrand() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const brands = await getBrands();
+      const brand = await getBrandById(id);
       const articles = await getArticles();
       const categories = await getCategories();
       const tags = await getTags();
       const media = await getMedia();
 
-      const brandData = brands.find((b) => b.id === id);
-
-      setBrand(brandData);
+      setBrand(brand);
 
       setArticles(articles.filter((a) => a.brandId === id));
       setCategories(categories.filter((c) => c.brandId === id));
