@@ -34,12 +34,6 @@ export class CategoriesService {
       })
    }
 
-   async findAllByBrand(brandId: number) {
-      return this.prisma.category.findMany({
-         where: { brandId }
-      })
-   }
-
    async update(id: number, data: UpdateCategoryDto) {
       return this.prisma.category.update({
          where: { id },

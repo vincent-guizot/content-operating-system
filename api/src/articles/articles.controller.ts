@@ -4,7 +4,7 @@ import {
    Post,
    Body,
    Param,
-   Patch,
+   Put,
    Delete
 } from '@nestjs/common'
 
@@ -17,27 +17,26 @@ export class ArticlesController {
 
    constructor(private readonly service: ArticlesService) { }
 
+   // CREATE
    @Post()
    create(@Body() body: CreateArticleDto) {
       return this.service.create(body)
    }
 
+   // GET ALL
    @Get()
    findAll() {
       return this.service.findAll()
    }
 
-   @Get('slug/:slug')
-   findBySlug(@Param('slug') slug: string) {
-      return this.service.findBySlug(slug)
-   }
-
+   // GET SINGLE
    @Get(':id')
    findOne(@Param('id') id: string) {
       return this.service.findOne(Number(id))
    }
 
-   @Patch(':id')
+   // UPDATE
+   @Put(':id')
    update(
       @Param('id') id: string,
       @Body() body: UpdateArticleDto
@@ -45,6 +44,7 @@ export class ArticlesController {
       return this.service.update(Number(id), body)
    }
 
+   // DELETE
    @Delete(':id')
    remove(@Param('id') id: string) {
       return this.service.remove(Number(id))

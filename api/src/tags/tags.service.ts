@@ -34,12 +34,6 @@ export class TagsService {
       })
    }
 
-   async findByBrand(brandId: number) {
-      return this.prisma.tag.findMany({
-         where: { brandId }
-      })
-   }
-
    async update(id: number, data: UpdateTagDto) {
       return this.prisma.tag.update({
          where: { id },

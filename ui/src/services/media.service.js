@@ -11,7 +11,11 @@ export const getMediaById = async (id) => {
 };
 
 export const createMedia = async (data) => {
-  const res = await api.post("/media", data);
+  const res = await api.post("/media/upload", data, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
   return res.data;
 };
 

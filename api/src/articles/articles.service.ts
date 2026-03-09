@@ -27,9 +27,7 @@ export class ArticlesService {
             brand: true,
             category: true,
             tags: {
-               include: {
-                  tag: true
-               }
+               include: { tag: true }
             }
          }
       })
@@ -63,19 +61,6 @@ export class ArticlesService {
       })
    }
 
-   async findBySlug(slug: string) {
-      return this.prisma.article.findUnique({
-         where: { slug },
-         include: {
-            brand: true,
-            category: true,
-            tags: {
-               include: { tag: true }
-            }
-         }
-      })
-   }
-
    async update(id: number, data: UpdateArticleDto) {
 
       const { tagIds, ...articleData } = data
@@ -86,12 +71,19 @@ export class ArticlesService {
             ...articleData,
             tags: tagIds
                ? {
-                  deleteMany: {},
+                  deleteMany: { articleId: id },
                   create: tagIds.map(tagId => ({
                      tag: { connect: { id: tagId } }
                   }))
                }
                : undefined
+         },
+         include: {
+            brand: true,
+            category: true,
+            tags: {
+               include: { tag: true }
+            }
          }
       })
    }

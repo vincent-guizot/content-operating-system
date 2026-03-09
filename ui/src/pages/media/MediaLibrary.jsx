@@ -1,33 +1,46 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Trash2 } from "lucide-react";
+import { Trash2, Upload } from "lucide-react";
 
 import DataToolbar from "../../components/shared/ui/DataToolbar";
 import DataTable from "../../components/shared/ui/DataTable";
+import PopUp from "../../components/shared/feedback/PopUp";
+
+import UploadMedia from "./UploadMedia";
 
 import useSearch from "../../hooks/useSearch";
 
-import { getMedia } from "../../services";
+import { getMedia, deleteMedia } from "../../services";
 
-export default function Media() {
+export default function MediaLibrary() {
   const [media, setMedia] = useState([]);
   const [view, setView] = useState("table");
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchMedia = async () => {
-      try {
-        const data = await getMedia();
-        setMedia(data);
-      } catch (err) {
-        console.error("Failed to fetch media:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const [openUpload, setOpenUpload] = useState(false);
 
+  useEffect(() => {
     fetchMedia();
   }, []);
+
+  const fetchMedia = async () => {
+    try {
+      const data = await getMedia();
+      setMedia(data);
+    } catch (err) {
+      console.error("Failed to fetch media:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteMedia(id);
+      fetchMedia();
+    } catch (err) {
+      console.error("Delete failed:", err);
+    }
+  };
 
   const { query, setQuery, filteredData } = useSearch(media, ["name"]);
 
@@ -50,8 +63,11 @@ export default function Media() {
       key: "actions",
       label: "Actions",
       render: (row) => (
-        <button className="text-red-600">
-          <Trash2 size={14} />
+        <button
+          onClick={() => handleDelete(row.id)}
+          className="text-red-600 hover:text-red-800"
+        >
+          <Trash2 size={16} />
         </button>
       ),
     },
@@ -65,12 +81,16 @@ export default function Media() {
     <div>
       {/* HEADER */}
 
-      <div className="flex justify-between mb-6">
+      <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Media Library</h1>
 
-        <Link to="/media/create" className="os-btn-primary">
-          + Upload Media
-        </Link>
+        <button
+          onClick={() => setOpenUpload(true)}
+          className="os-btn-primary flex items-center gap-2"
+        >
+          <Upload size={16} />
+          Upload Media
+        </button>
       </div>
 
       {/* TOOLBAR */}
@@ -85,6 +105,21 @@ export default function Media() {
       {/* TABLE */}
 
       <DataTable columns={columns} data={filteredData} />
+
+      {/* POPUP */}
+
+      <PopUp
+        open={openUpload}
+        title="Upload Media"
+        onClose={() => setOpenUpload(false)}
+      >
+        <UploadMedia
+          onSuccess={() => {
+            fetchMedia();
+            setOpenUpload(false);
+          }}
+        />
+      </PopUp>
     </div>
   );
 }
