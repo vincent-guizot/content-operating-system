@@ -1,53 +1,93 @@
 {
   "articles": [
     {
-      "id": "1",
+      "id": 1,
       "title": "React Performance Guide",
       "slug": "react-performance-guide",
-      "brand": "Orange Kode",
-      "category": "Frontend",
-      "tags": [
-        "React",
-        "Performance"
+      "brandId": 1,
+      "categoryId": 1,
+      "tagIds": [
+        1,
+        6
       ],
       "excerpt": "Learn how to optimize React applications for better performance.",
-      "content": "<h1>React Performance Guide</h1><p>React applications can become slow if components re-render unnecessarily.</p><h2>Why Performance Matters</h2><p>Performance directly affects user experience.</p><h3>Common Issues</h3><ul><li>Unnecessary re-renders</li><li>Large component trees</li><li>Heavy computations</li></ul><h2>Optimization</h2><h3>React.memo</h3><pre><code>const MyComponent = React.memo((props)=>{ return &lt;div&gt;{props.title}&lt;/div&gt; })</code></pre><blockquote>Measure performance first before optimizing.</blockquote><p>Use profiling tools to detect bottlenecks.</p>",
+      "content": "<h1>React Performance Guide</h1><p>React apps can slow down when components re-render unnecessarily.</p>",
       "thumbnail": "https://picsum.photos/400/250?1",
       "coverImage": "https://picsum.photos/800/400?11",
       "author": "Vincent Guizot",
       "status": "Published",
       "visibility": "Public",
-      "featured": false,
+      "featured": true,
       "views": 1240,
       "readingTime": 6,
       "seoTitle": "React Performance Guide",
       "seoDescription": "Improve React application performance with practical techniques.",
-      "seoKeywords": [
-        "React",
-        "Performance",
-        "Frontend"
-      ],
       "canonicalUrl": "",
-      "publishedAt": "2026-03-01",
-      "scheduledAt": null,
-      "createdAt": "2026-03-01",
-      "updatedAt": "2026-03-03",
-      "deletedAt": null
+      "publishedAt": "2026-03-01"
     },
     {
-      "id": "2",
-      "title": "Node.js Architecture Tips",
-      "slug": "nodejs-architecture-tips",
-      "brand": "Sadino Technology",
-      "category": "Backend",
-      "tags": [
-        "Node",
-        "Architecture"
+      "id": 2,
+      "title": "Understanding Redux Toolkit",
+      "slug": "understanding-redux-toolkit",
+      "brandId": 1,
+      "categoryId": 1,
+      "tagIds": [
+        4,
+        1
       ],
-      "excerpt": "Best practices when designing scalable Node.js systems.",
-      "content": "<h1>Node.js Architecture Tips</h1><p>Designing scalable systems requires clear architecture.</p><h2>Layered Architecture</h2><ul><li>Routes</li><li>Controllers</li><li>Services</li><li>Repositories</li></ul><h3>Benefits</h3><p>Separating logic makes the application easier to maintain.</p><pre><code>class UserService { static async findAll(){ return await User.findAll() }}</code></pre><blockquote>Good architecture improves scalability.</blockquote>",
+      "excerpt": "Redux Toolkit simplifies Redux development significantly.",
+      "content": "<h1>Understanding Redux Toolkit</h1>",
       "thumbnail": "https://picsum.photos/400/250?2",
       "coverImage": "https://picsum.photos/800/400?12",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": false,
+      "views": 670,
+      "readingTime": 5,
+      "seoTitle": "Redux Toolkit Guide",
+      "seoDescription": "Learn Redux Toolkit basics.",
+      "canonicalUrl": "",
+      "publishedAt": "2026-02-10"
+    },
+    {
+      "id": 3,
+      "title": "Beginner Guide to TypeScript",
+      "slug": "typescript-beginner-guide",
+      "brandId": 1,
+      "categoryId": 6,
+      "tagIds": [
+        5,
+        2
+      ],
+      "excerpt": "Why TypeScript makes JavaScript development safer.",
+      "content": "<h1>TypeScript Guide</h1>",
+      "thumbnail": "https://picsum.photos/400/250?3",
+      "coverImage": "https://picsum.photos/800/400?13",
+      "author": "Vincent Guizot",
+      "status": "Draft",
+      "visibility": "Public",
+      "featured": false,
+      "views": 301,
+      "readingTime": 6,
+      "seoTitle": "TypeScript Beginner Guide",
+      "seoDescription": "Learn TypeScript fundamentals.",
+      "canonicalUrl": "",
+      "publishedAt": null
+    },
+    {
+      "id": 4,
+      "title": "Node.js Architecture Tips",
+      "slug": "nodejs-architecture-tips",
+      "brandId": 2,
+      "categoryId": 8,
+      "tagIds": [
+        7
+      ],
+      "excerpt": "Best practices when designing scalable Node.js systems.",
+      "content": "<h1>Node Architecture</h1>",
+      "thumbnail": "https://picsum.photos/400/250?4",
+      "coverImage": "https://picsum.photos/800/400?14",
       "author": "Vincent Guizot",
       "status": "Draft",
       "visibility": "Public",
@@ -55,209 +95,234 @@
       "views": 845,
       "readingTime": 7,
       "seoTitle": "Node.js Architecture Tips",
-      "seoDescription": "Best architecture practices for building scalable Node.js systems.",
-      "seoKeywords": [
-        "Node",
-        "Architecture",
-        "Backend"
-      ],
+      "seoDescription": "Best architecture practices.",
       "canonicalUrl": "",
-      "publishedAt": null,
-      "scheduledAt": null,
-      "createdAt": "2026-02-20",
-      "updatedAt": "2026-02-21",
-      "deletedAt": null
+      "publishedAt": null
     },
     {
-      "id": "3",
-      "title": "Understanding Redux Toolkit",
-      "slug": "understanding-redux-toolkit",
-      "brand": "OrangeKode",
-      "category": "Frontend",
-      "tags": [
-        "Redux",
-        "React"
-      ],
-      "excerpt": "Redux Toolkit simplifies Redux development significantly.",
-      "content": "<h1>Understanding Redux Toolkit</h1><p>Redux Toolkit simplifies state management in React apps.</p><h2>Main Features</h2><ul><li>createSlice</li><li>configureStore</li><li>createAsyncThunk</li></ul><h3>Example Slice</h3><pre><code>const slice = createSlice({ name:'counter', initialState:{value:0}, reducers:{increment:(state)=>{state.value++}}})</code></pre><blockquote>Redux Toolkit is the recommended way to write Redux.</blockquote>",
-      "thumbnail": "https://picsum.photos/400/250?3",
-      "coverImage": "https://picsum.photos/800/400?13",
-      "author": "Vincent Guizot",
-      "status": "Published",
-      "visibility": "Public",
-      "featured": false,
-      "views": 670,
-      "readingTime": 5,
-      "seoTitle": "Understanding Redux Toolkit",
-      "seoDescription": "Learn how Redux Toolkit simplifies Redux state management.",
-      "seoKeywords": [
-        "Redux",
-        "React",
-        "State Management"
-      ],
-      "canonicalUrl": "",
-      "publishedAt": "2026-02-10",
-      "scheduledAt": null,
-      "createdAt": "2026-02-10",
-      "updatedAt": "2026-02-12",
-      "deletedAt": null
-    },
-    {
-      "id": "4",
-      "title": "Deploying Node Apps with Docker",
+      "id": 5,
+      "title": "Deploy Node Apps with Docker",
       "slug": "deploy-node-docker",
-      "brand": "Sadino Technology",
-      "category": "Backend",
-      "tags": [
-        "Node",
-        "Docker"
+      "brandId": 2,
+      "categoryId": 8,
+      "tagIds": [
+        8
       ],
       "excerpt": "Containerize your Node.js applications easily.",
-      "content": "<h1>Deploy Node Apps with Docker</h1><p>Docker packages applications into containers.</p><h2>Benefits</h2><ul><li>Consistent environment</li><li>Easy deployment</li><li>Better scaling</li></ul><h3>Dockerfile Example</h3><pre><code>FROM node:20 WORKDIR /app COPY package.json . RUN npm install COPY . . CMD ['npm','start']</code></pre><blockquote>Containers eliminate environment inconsistencies.</blockquote>",
-      "thumbnail": "https://picsum.photos/400/250?4",
-      "coverImage": "https://picsum.photos/800/400?14",
+      "content": "<h1>Docker Deployment</h1>",
+      "thumbnail": "https://picsum.photos/400/250?5",
+      "coverImage": "https://picsum.photos/800/400?15",
       "author": "Vincent Guizot",
       "status": "Published",
       "visibility": "Public",
       "featured": false,
       "views": 432,
       "readingTime": 6,
-      "seoTitle": "Deploy Node.js Apps with Docker",
-      "seoDescription": "Learn how to containerize Node.js apps using Docker.",
-      "seoKeywords": [
-        "Docker",
-        "Node",
-        "DevOps"
-      ],
+      "seoTitle": "Deploy Node with Docker",
+      "seoDescription": "Learn Docker deployment.",
       "canonicalUrl": "",
-      "publishedAt": "2026-02-01",
-      "scheduledAt": null,
-      "createdAt": "2026-02-01",
-      "updatedAt": "2026-02-03",
-      "deletedAt": null
+      "publishedAt": "2026-02-01"
     },
     {
-      "id": "5",
-      "title": "Protein Diet for Muscle Gain",
-      "slug": "protein-diet-muscle",
-      "brand": "Protein Shack",
-      "category": "Health",
-      "tags": [
-        "Protein",
-        "Fitness"
-      ],
-      "excerpt": "A structured protein diet for gaining lean muscle.",
-      "content": "<h1>Protein Diet for Muscle Gain</h1><p>Protein supports muscle repair and growth.</p><h2>Recommended Intake</h2><p>Most athletes require 1.6g–2.2g protein per kg bodyweight.</p><h3>Best Sources</h3><ul><li>Chicken breast</li><li>Eggs</li><li>Fish</li><li>Beef</li></ul><blockquote>Combine high protein diet with strength training.</blockquote>",
-      "thumbnail": "https://picsum.photos/400/250?5",
-      "coverImage": "https://picsum.photos/800/400?15",
-      "author": "Vincent Guizot",
-      "status": "Published",
-      "visibility": "Public",
-      "featured": true,
-      "views": 511,
-      "readingTime": 4,
-      "seoTitle": "Protein Diet for Muscle Gain",
-      "seoDescription": "A complete guide to protein diets for muscle growth.",
-      "seoKeywords": [
-        "Protein",
-        "Fitness",
-        "Diet"
-      ],
-      "canonicalUrl": "",
-      "publishedAt": "2026-01-28",
-      "scheduledAt": null,
-      "createdAt": "2026-01-28",
-      "updatedAt": "2026-01-30",
-      "deletedAt": null
-    },
-    {
-      "id": "6",
-      "title": "Beginner Guide to TypeScript",
-      "slug": "typescript-beginner-guide",
-      "brand": "OrangeKode",
-      "category": "Frontend",
-      "tags": [
-        "TypeScript",
-        "JavaScript"
-      ],
-      "excerpt": "Why TypeScript makes JavaScript development safer.",
-      "content": "<h1>Beginner Guide to TypeScript</h1><p>TypeScript adds static typing to JavaScript.</p><h2>Advantages</h2><ul><li>Type safety</li><li>Better tooling</li><li>Scalable code</li></ul><h3>Example</h3><pre><code>function greet(name:string):string{ return 'Hello '+name }</code></pre><blockquote>TypeScript catches bugs during development.</blockquote>",
-      "thumbnail": "https://picsum.photos/400/250?6",
-      "coverImage": "https://picsum.photos/800/400?16",
-      "author": "Vincent Guizot",
-      "status": "Draft",
-      "visibility": "Public",
-      "featured": false,
-      "views": 301,
-      "readingTime": 6,
-      "seoTitle": "Beginner Guide to TypeScript",
-      "seoDescription": "Learn why TypeScript improves JavaScript development.",
-      "seoKeywords": [
-        "TypeScript",
-        "JavaScript"
-      ],
-      "canonicalUrl": "",
-      "publishedAt": null,
-      "scheduledAt": null,
-      "createdAt": "2026-01-22",
-      "updatedAt": "2026-01-23",
-      "deletedAt": null
-    },
-    {
-      "id": "7",
+      "id": 6,
       "title": "Building REST API with Express",
       "slug": "express-rest-api",
-      "brand": "Sadino Technology",
-      "category": "Backend",
-      "tags": [
-        "Express",
-        "API"
+      "brandId": 2,
+      "categoryId": 8,
+      "tagIds": [
+        9
       ],
       "excerpt": "Create scalable REST APIs using Express.js.",
-      "content": "<h1>Building REST API with Express</h1><p>Express is a minimalist framework for Node.js.</p><h2>API Structure</h2><ul><li>Routes</li><li>Controllers</li><li>Services</li></ul><h3>Example Route</h3><pre><code>app.get('/users', async(req,res)=>{ const users=await User.findAll(); res.json(users) })</code></pre><blockquote>Separate business logic from routes.</blockquote>",
-      "thumbnail": "https://picsum.photos/400/250?7",
-      "coverImage": "https://picsum.photos/800/400?17",
+      "content": "<h1>Express API</h1>",
+      "thumbnail": "https://picsum.photos/400/250?6",
+      "coverImage": "https://picsum.photos/800/400?16",
       "author": "Vincent Guizot",
       "status": "Published",
       "visibility": "Public",
       "featured": false,
       "views": 654,
       "readingTime": 7,
-      "seoTitle": "Build REST API with Express",
-      "seoDescription": "Create scalable APIs using Express.js.",
-      "seoKeywords": [
-        "Express",
-        "API",
-        "Node"
-      ],
+      "seoTitle": "Express REST API",
+      "seoDescription": "Build REST API with Express.",
       "canonicalUrl": "",
-      "publishedAt": "2026-01-18",
-      "scheduledAt": null,
-      "createdAt": "2026-01-18",
-      "updatedAt": "2026-01-20",
-      "deletedAt": null
+      "publishedAt": "2026-01-18"
+    },
+    {
+      "id": 7,
+      "title": "How to Start Coding Career",
+      "slug": "start-coding-career",
+      "brandId": 3,
+      "categoryId": 12,
+      "tagIds": [
+        12
+      ],
+      "excerpt": "Tips for starting a career in software development.",
+      "content": "<h1>Start Coding Career</h1>",
+      "thumbnail": "https://picsum.photos/400/250?7",
+      "coverImage": "https://picsum.photos/800/400?17",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": true,
+      "views": 500,
+      "readingTime": 4,
+      "seoTitle": "Start Coding Career",
+      "seoDescription": "Guide to start coding career.",
+      "canonicalUrl": "",
+      "publishedAt": "2026-02-12"
+    },
+    {
+      "id": 8,
+      "title": "Best Programming Habits",
+      "slug": "best-programming-habits",
+      "brandId": 3,
+      "categoryId": 10,
+      "tagIds": [
+        11
+      ],
+      "excerpt": "Habits that make developers productive.",
+      "content": "<h1>Programming Habits</h1>",
+      "thumbnail": "https://picsum.photos/400/250?8",
+      "coverImage": "https://picsum.photos/800/400?18",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": false,
+      "views": 210,
+      "readingTime": 4,
+      "seoTitle": "Programming Habits",
+      "seoDescription": "Best habits for programmers.",
+      "canonicalUrl": "",
+      "publishedAt": "2026-02-15"
+    },
+    {
+      "id": 9,
+      "title": "Protein Diet for Muscle Gain",
+      "slug": "protein-diet-muscle",
+      "brandId": 4,
+      "categoryId": 13,
+      "tagIds": [
+        10,
+        11
+      ],
+      "excerpt": "A structured protein diet for gaining lean muscle.",
+      "content": "<h1>Protein Diet</h1>",
+      "thumbnail": "https://picsum.photos/400/250?9",
+      "coverImage": "https://picsum.photos/800/400?19",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": true,
+      "views": 511,
+      "readingTime": 4,
+      "seoTitle": "Protein Diet",
+      "seoDescription": "Protein diet guide.",
+      "canonicalUrl": "",
+      "publishedAt": "2026-01-28"
+    },
+    {
+      "id": 10,
+      "title": "Healthy Diet Basics",
+      "slug": "healthy-diet-basics",
+      "brandId": 4,
+      "categoryId": 14,
+      "tagIds": [
+        11
+      ],
+      "excerpt": "Understand the basics of a healthy diet.",
+      "content": "<h1>Healthy Diet</h1>",
+      "thumbnail": "https://picsum.photos/400/250?10",
+      "coverImage": "https://picsum.photos/800/400?20",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": false,
+      "views": 350,
+      "readingTime": 5,
+      "seoTitle": "Healthy Diet Basics",
+      "seoDescription": "Guide to healthy diet.",
+      "canonicalUrl": "",
+      "publishedAt": "2026-01-10"
+    },
+    {
+      "id": 11,
+      "title": "Chocolate Cookie Recipe",
+      "slug": "chocolate-cookie-recipe",
+      "brandId": 5,
+      "categoryId": 16,
+      "tagIds": [
+        16
+      ],
+      "excerpt": "Easy homemade chocolate cookies recipe.",
+      "content": "<h1>Chocolate Cookies</h1>",
+      "thumbnail": "https://picsum.photos/400/250?11",
+      "coverImage": "https://picsum.photos/800/400?21",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": false,
+      "views": 200,
+      "readingTime": 3,
+      "seoTitle": "Chocolate Cookie Recipe",
+      "seoDescription": "Homemade cookies.",
+      "canonicalUrl": "",
+      "publishedAt": "2026-01-05"
+    },
+    {
+      "id": 12,
+      "title": "Strawberry Cookie Recipe",
+      "slug": "strawberry-cookie-recipe",
+      "brandId": 5,
+      "categoryId": 17,
+      "tagIds": [
+        16
+      ],
+      "excerpt": "Delicious strawberry cookies recipe.",
+      "content": "<h1>Strawberry Cookies</h1>",
+      "thumbnail": "https://picsum.photos/400/250?12",
+      "coverImage": "https://picsum.photos/800/400?22",
+      "author": "Vincent Guizot",
+      "status": "Published",
+      "visibility": "Public",
+      "featured": false,
+      "views": 180,
+      "readingTime": 3,
+      "seoTitle": "Strawberry Cookie Recipe",
+      "seoDescription": "Strawberry cookie recipe.",
+      "canonicalUrl": "",
+      "publishedAt": "2026-01-02"
     }
   ],
   "brands": [
     {
-      "id": "1",
-      "name": "Orange Kode"
+      "id": 1,
+      "name": "Orange Kode",
+      "description": "Fullstack JavaScript Bootcamp for career switchers.",
+      "logoImage": "https://picsum.photos/200/200?1"
     },
     {
-      "id": "2",
-      "name": "Sadino Technology"
+      "id": 2,
+      "name": "Sadino Technology",
+      "description": "Software house specializing in web applications and API development.",
+      "logoImage": "https://picsum.photos/200/200?2"
     },
     {
-      "id": "3",
-      "name": "Elevora Bootcamp"
+      "id": 3,
+      "name": "Elevora Bootcamp",
+      "description": "Premium coding bootcamp focused on modern software engineering skills.",
+      "logoImage": "https://picsum.photos/200/200?3"
     },
     {
-      "id": "4",
-      "name": "Protein Shack"
+      "id": 4,
+      "name": "Protein Shack",
+      "description": "Content and resources about nutrition, protein meals, and fitness.",
+      "logoImage": "https://picsum.photos/200/200?4"
     },
     {
-      "id": "5",
-      "name": "Cookiefy"
+      "id": 5,
+      "name": "Cookiefy",
+      "description": "Creative dessert brand focused on unique cookie recipes.",
+      "logoImage": "https://picsum.photos/200/200?5"
     }
   ],
   "categories": [
@@ -369,93 +434,89 @@
   ],
   "tags": [
     {
-      "id": "1",
-      "brandId": "1",
-      "name": "React"
+      "id": 1,
+      "name": "React",
+      "brandId": 1
     },
     {
-      "id": "2",
-      "brandId": "1",
-      "name": "JavaScript"
+      "id": 2,
+      "name": "JavaScript",
+      "brandId": 1
     },
     {
-      "id": "3",
-      "brandId": "1",
-      "name": "Frontend"
+      "id": 3,
+      "name": "Frontend",
+      "brandId": 1
     },
     {
-      "id": "4",
-      "brandId": "1",
-      "name": "Redux"
+      "id": 4,
+      "name": "Redux",
+      "brandId": 1
     },
     {
-      "id": "5",
-      "brandId": "1",
-      "name": "TypeScript"
+      "id": 5,
+      "name": "TypeScript",
+      "brandId": 1
     },
     {
-      "id": "7",
-      "brandId": "2",
-      "name": "SEO"
+      "id": 6,
+      "name": "Performance",
+      "brandId": 1
     },
     {
-      "id": "8",
-      "brandId": "3",
-      "name": "Fitness"
+      "id": 7,
+      "name": "Architecture",
+      "brandId": 2
     },
     {
-      "id": "9",
-      "brandId": "3",
-      "name": "Protein"
+      "id": 8,
+      "name": "Docker",
+      "brandId": 2
     },
     {
-      "id": "10",
-      "brandId": "4",
-      "name": "API"
+      "id": 9,
+      "name": "Express",
+      "brandId": 2
     },
     {
-      "id": "11",
-      "brandId": "4",
-      "name": "UI"
+      "id": 10,
+      "name": "API",
+      "brandId": 2
     },
     {
-      "id": "12",
-      "brandId": "4",
-      "name": "Design"
+      "id": 11,
+      "name": "Programming",
+      "brandId": 3
     },
     {
-      "id": "13",
-      "brandId": "5",
-      "name": "Database"
+      "id": 12,
+      "name": "Career",
+      "brandId": 3
     },
     {
-      "id": "14",
-      "brandId": "5",
-      "name": "DevOps"
+      "id": 13,
+      "name": "Protein",
+      "brandId": 4
     },
     {
-      "id": "bf4f",
-      "name": "Profile Company",
-      "brandId": "2",
-      "categoryId": ""
+      "id": 14,
+      "name": "Fitness",
+      "brandId": 4
     },
     {
-      "id": "6fdd",
-      "name": "Web API",
-      "brandId": "2",
-      "categoryId": ""
+      "id": 15,
+      "name": "Nutrition",
+      "brandId": 4
     },
     {
-      "id": "e199",
-      "name": "Design",
-      "brandId": "1",
-      "categoryId": ""
+      "id": 16,
+      "name": "Dessert",
+      "brandId": 5
     },
     {
-      "id": "3103",
-      "name": "Fundamental",
-      "brandId": "1",
-      "categoryId": ""
+      "id": 17,
+      "name": "Cookies",
+      "brandId": 5
     }
   ],
   "media": [
