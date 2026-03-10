@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-import { deleteArticle, getArticleBySlug } from "../../services";
-import { Pencil, Trash } from "lucide-react";
+import { getArticles, deleteArticle } from "../../services";
+
+import ArticleHeader from "./components/ArticleHeader";
+import ArticleMeta from "./components/ArticleMeta";
+import ArticleTags from "./components/ArticleTags";
+import ArticleInfo from "./components/ArticleInfo";
 
 export default function ArticleDetail() {
   const { slug } = useParams();
@@ -12,18 +16,16 @@ export default function ArticleDetail() {
 
   useEffect(() => {
     const fetchArticle = async () => {
-      const data = await getArticleBySlug(slug);
-      console.log(data);
-      setArticle(data);
+      const data = await getArticles();
+      const found = data.find((a) => a.slug === slug);
+      setArticle(found);
     };
 
     fetchArticle();
   }, [slug]);
 
   const handleDelete = async () => {
-    const confirmDelete = confirm("Delete this article?");
-
-    if (!confirmDelete) return;
+    if (!confirm("Delete this article?")) return;
 
     await deleteArticle(article.id);
 
@@ -35,81 +37,27 @@ export default function ArticleDetail() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto py-5">
-      {/* HEADER */}
-      <div className="flex justify-between items-start mb-6">
-        <h1 className="text-4xl font-bold">{article.title}</h1>
+    <div className="max-w-4xl mx-auto py-10">
+      <ArticleHeader article={article} onDelete={handleDelete} />
 
-        {/* ACTIONS */}
-        <div className="flex gap-3">
-          <Link
-            to={`/articles/edit/${article.slug}`}
-            className="flex items-center gap-2 px-4 py-2 os-btn-outline"
-          >
-            <Pencil className="w-4 h-4" />
-            Edit
-          </Link>
+      <ArticleMeta article={article} />
 
-          <button
-            onClick={handleDelete}
-            className="flex items-center gap-2 px-4 py-2 os-btn-primary"
-          >
-            <Trash className="w-4 h-4" />
-            Delete
-          </button>
-        </div>
-      </div>
-
-      {/* META */}
-      <p className="text-sm opacity-60 mb-6">
-        {article.author} • {article.createdAt}
-      </p>
-
-      {/* COVER */}
       {article.coverImage && (
         <img
           src={article.coverImage}
           alt={article.title}
-          className="rounded-lg mb-6 w-full h-auto object-cover"
+          className="rounded-lg mb-6 w-full"
         />
       )}
 
-      {/* TAGS */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {article.tags?.map((item) => (
-          <span key={item.id} className="px-3 py-1 text-xs bg-gray-200 rounded">
-            #{item.name}
-          </span>
-        ))}
-      </div>
+      <ArticleTags tags={article.tags} />
 
-      {/* CONTENT */}
       <div
         className="prose max-w-none"
         dangerouslySetInnerHTML={{ __html: article.content }}
       />
 
-      {/* INFO */}
-      <div className="border-t mt-10 pt-6 text-sm space-y-2">
-        <p>
-          <b>Brand:</b> {article.brand?.name}
-        </p>
-        <p>
-          <b>Category:</b> {article.category?.name}
-        </p>
-        <p>
-          <b>Status:</b> {article.status}
-        </p>
-        <p>
-          <b>Visibility:</b> {article.visibility}
-        </p>
-        <p>
-          <b>Views:</b> {article.views}
-        </p>
-        <p>
-          <b>Reading Time:</b> {article.readingTime} min
-        </p>
-      </div>
+      <ArticleInfo article={article} />
     </div>
   );
 }

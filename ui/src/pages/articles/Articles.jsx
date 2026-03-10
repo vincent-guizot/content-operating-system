@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Pencil, Trash2 } from "lucide-react";
 
-import ArticleCard from "../../components/shared/ui/ArticleCard";
+import ArticleCard from "./components/ArticleCard";
 import DataToolbar from "../../components/shared/ui/DataToolbar";
 import DataTable from "../../components/shared/ui/DataTable";
 
