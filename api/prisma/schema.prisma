@@ -51,6 +51,7 @@ model Tag {
 
   createdAt DateTime @default(now())
 
+  @@unique([name, brandId]) // ⭐ penting
   @@index([brandId])
 }
 

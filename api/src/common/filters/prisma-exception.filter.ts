@@ -12,6 +12,8 @@ export class PrismaExceptionFilter implements ExceptionFilter {
 
    catch(exception: Prisma.PrismaClientKnownRequestError, host: ArgumentsHost) {
 
+      console.error("PRISMA ERROR:", exception)
+
       const ctx = host.switchToHttp()
       const response = ctx.getResponse()
 
@@ -28,7 +30,10 @@ export class PrismaExceptionFilter implements ExceptionFilter {
       response.status(HttpStatus.BAD_REQUEST).json({
          success: false,
          statusCode: 400,
-         message
+         message,
+         code: exception.code,
+         meta: exception.meta
       })
    }
+
 }

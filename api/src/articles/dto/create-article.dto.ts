@@ -8,24 +8,29 @@ import {
 
 export class CreateArticleDto {
 
+   @IsOptional()
    @IsString()
-   title: string
+   title?: string
 
+   @IsOptional()
    @IsString()
-   slug: string
+   slug?: string
 
+   @IsOptional()
    @IsInt()
-   brandId: number
+   brandId?: number
 
+   @IsOptional()
    @IsInt()
-   categoryId: number
+   categoryId?: number
 
    @IsOptional()
    @IsString()
    excerpt?: string
 
+   @IsOptional()
    @IsString()
-   content: string
+   content?: string
 
    @IsOptional()
    @IsString()
@@ -35,14 +40,17 @@ export class CreateArticleDto {
    @IsString()
    coverImage?: string
 
+   @IsOptional()
    @IsString()
-   author: string
+   author?: string
 
+   @IsOptional()
    @IsString()
-   status: string
+   status?: string
 
+   @IsOptional()
    @IsString()
-   visibility: string
+   visibility?: string
 
    @IsOptional()
    @IsBoolean()
