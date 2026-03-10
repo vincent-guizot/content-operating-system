@@ -38,7 +38,11 @@ export default function UploadMedia({ onSuccess }) {
         />
       </div>
 
-      <button type="submit" disabled={loading} className="os-btn-primary">
+      <button
+        type="submit"
+        disabled={loading}
+        className="os-btn-primary w-full"
+      >
         {loading ? "Uploading..." : "Upload"}
       </button>
     </form>

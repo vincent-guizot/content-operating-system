@@ -16,6 +16,7 @@ export const createMedia = async (data) => {
       "Content-Type": "multipart/form-data",
     },
   });
+
   return res.data;
 };
 
