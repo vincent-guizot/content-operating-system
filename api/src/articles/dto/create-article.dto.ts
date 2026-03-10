@@ -66,6 +66,11 @@ export class CreateArticleDto {
 
    @IsOptional()
    @IsArray()
+   @IsInt({ each: true })
    tagIds?: number[]
 
+   @IsOptional()
+   @IsArray()
+   @IsString({ each: true })
+   tags?: string[]
 }

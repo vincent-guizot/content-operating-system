@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { useEditor, EditorContent } from "@tiptap/react";
+
 import StarterKit from "@tiptap/starter-kit";
 import Image from "@tiptap/extension-image";
-import UnderlineExt from "@tiptap/extension-underline";
+import Link from "@tiptap/extension-link";
+import Underline from "@tiptap/extension-underline";
+import Placeholder from "@tiptap/extension-placeholder";
+import HorizontalRule from "@tiptap/extension-horizontal-rule";
 
 import {
   Bold,
@@ -17,19 +21,37 @@ import {
   Undo,
   Redo,
   ImagePlus,
-  Underline,
+  Underline as UnderlineIcon,
+  Link as LinkIcon,
+  Minus,
+  Eraser,
 } from "lucide-react";
 
 export default function ArticleEditor({ content, setContent }) {
   const [imageUrl, setImageUrl] = useState("");
 
   const editor = useEditor({
-    extensions: [StarterKit, Image, UnderlineExt],
+    extensions: [
+      StarterKit,
+
+      Image,
+
+      Link.configure({
+        openOnClick: false,
+      }),
+
+      Underline,
+
+      HorizontalRule,
+
+      Placeholder.configure({
+        placeholder: "Start writing your article...",
+      }),
+    ],
 
     content: content || "<p></p>",
-    immediatelyRender: false,
 
-    onUpdate: ({ editor }) => {
+    onUpdate({ editor }) {
       setContent(editor.getHTML());
     },
 
@@ -37,8 +59,8 @@ export default function ArticleEditor({ content, setContent }) {
       handlePaste(view, event) {
         const text = event.clipboardData.getData("text/plain");
 
-        // jika paste image url
-        if (text && text.match(/\.(jpeg|jpg|png|gif)$/)) {
+        // auto detect image url
+        if (text && text.match(/\.(jpeg|jpg|png|gif|webp)$/)) {
           event.preventDefault();
 
           editor.chain().focus().setImage({ src: text }).run();
@@ -46,7 +68,7 @@ export default function ArticleEditor({ content, setContent }) {
           return true;
         }
 
-        // biarkan tiptap handle paste html default
+        // allow normal html paste
         return false;
       },
     },
@@ -57,6 +79,8 @@ export default function ArticleEditor({ content, setContent }) {
   const btn = (active) =>
     `p-2 rounded hover:bg-[#e7d6b2] ${active ? "bg-[#d9c39a]" : ""}`;
 
+  const divider = <div className="w-px h-5 bg-[#e3d3a9] mx-1" />;
+
   const addImage = () => {
     if (!imageUrl) return;
 
@@ -65,11 +89,19 @@ export default function ArticleEditor({ content, setContent }) {
     setImageUrl("");
   };
 
+  const addLink = () => {
+    const url = prompt("Enter URL");
+
+    if (!url) return;
+
+    editor.chain().focus().setLink({ href: url }).run();
+  };
+
   return (
     <div className="border border-[#B08968] rounded bg-[#fffdf4] flex flex-col h-full">
       {/* TOOLBAR */}
 
-      <div className="flex flex-wrap gap-1 border-b border-[#e3d3a9] p-2 bg-[#fdf6e3]">
+      <div className="flex flex-wrap items-center gap-1 border-b border-[#e3d3a9] p-2 bg-[#fdf6e3]">
         {/* UNDO REDO */}
 
         <button
@@ -86,7 +118,9 @@ export default function ArticleEditor({ content, setContent }) {
           <Redo size={16} />
         </button>
 
-        {/* HEADING */}
+        {divider}
+
+        {/* HEADINGS */}
 
         <button
           onClick={() =>
@@ -115,6 +149,8 @@ export default function ArticleEditor({ content, setContent }) {
           <Heading3 size={16} />
         </button>
 
+        {divider}
+
         {/* TEXT */}
 
         <button
@@ -135,8 +171,15 @@ export default function ArticleEditor({ content, setContent }) {
           onClick={() => editor.chain().focus().toggleUnderline().run()}
           className={btn(editor.isActive("underline"))}
         >
-          <Underline size={16} />
+          <UnderlineIcon size={16} />
         </button>
+
+        <button onClick={addLink} className={btn(editor.isActive("link"))}>
+          <LinkIcon size={16} />
+        </button>
+
+        {divider}
+
         {/* LIST */}
 
         <button
@@ -153,7 +196,9 @@ export default function ArticleEditor({ content, setContent }) {
           <ListOrdered size={16} />
         </button>
 
-        {/* QUOTE */}
+        {divider}
+
+        {/* BLOCK */}
 
         <button
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
@@ -162,8 +207,6 @@ export default function ArticleEditor({ content, setContent }) {
           <Quote size={16} />
         </button>
 
-        {/* CODE */}
-
         <button
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
           className={btn(editor.isActive("codeBlock"))}
@@ -171,9 +214,31 @@ export default function ArticleEditor({ content, setContent }) {
           <Code size={16} />
         </button>
 
+        <button
+          onClick={() => editor.chain().focus().setHorizontalRule().run()}
+          className="p-2 hover:bg-[#e7d6b2] rounded"
+        >
+          <Minus size={16} />
+        </button>
+
+        {divider}
+
+        {/* CLEAR FORMAT */}
+
+        <button
+          onClick={() =>
+            editor.chain().focus().unsetAllMarks().clearNodes().run()
+          }
+          className="p-2 hover:bg-[#e7d6b2] rounded"
+        >
+          <Eraser size={16} />
+        </button>
+
+        {divider}
+
         {/* IMAGE */}
 
-        <div className="flex items-center gap-2 ml-4">
+        <div className="flex items-center gap-2 ml-2">
           <ImagePlus size={16} />
 
           <input
@@ -197,7 +262,7 @@ export default function ArticleEditor({ content, setContent }) {
 
       <EditorContent
         editor={editor}
-        className="flex-1 p-6 overflow-y-auto cursor-text"
+        className="flex-1 p-6 overflow-y-auto cursor-text prose max-w-none"
       />
     </div>
   );
