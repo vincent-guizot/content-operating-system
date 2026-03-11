@@ -7,6 +7,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+////////////////////////////////////////////////////////////
+//// ENUMS
+////////////////////////////////////////////////////////////
+
+enum ArticleStatus {
+  Draft
+  Published
+  Archived
+}
+
+enum ArticleVisibility {
+  Public
+  Private
+}
+
+////////////////////////////////////////////////////////////
+//// BRAND
+////////////////////////////////////////////////////////////
+
 model Brand {
   id Int @id @default(autoincrement())
 
@@ -22,6 +41,10 @@ model Brand {
   updatedAt DateTime @updatedAt
 }
 
+////////////////////////////////////////////////////////////
+//// CATEGORY
+////////////////////////////////////////////////////////////
+
 model Category {
   id Int @id @default(autoincrement())
 
@@ -36,8 +59,13 @@ model Category {
   createdAt DateTime @default(now())
 
   @@unique([slug, brandId])
+  @@unique([name, brandId])
   @@index([brandId])
 }
+
+////////////////////////////////////////////////////////////
+//// TAG
+////////////////////////////////////////////////////////////
 
 model Tag {
   id Int @id @default(autoincrement())
@@ -51,15 +79,19 @@ model Tag {
 
   createdAt DateTime @default(now())
 
-  @@unique([name, brandId]) // ⭐ penting
+  @@unique([name, brandId])
   @@index([brandId])
 }
+
+////////////////////////////////////////////////////////////
+//// ARTICLE
+////////////////////////////////////////////////////////////
 
 model Article {
   id Int @id @default(autoincrement())
 
   title String
-  slug  String @unique
+  slug  String
 
   brandId Int
   brand   Brand @relation(fields: [brandId], references: [id])
@@ -75,13 +107,13 @@ model Article {
   thumbnail  String?
   coverImage String?
 
-  status     String
-  visibility String
+  status     ArticleStatus
+  visibility ArticleVisibility
 
   featured Boolean @default(false)
 
-  views       Int  @default(0)
-  readingTime Int?
+  views       Int @default(0)
+  readingTime Int @default(0)
 
   seoTitle       String?
   seoDescription String?
@@ -97,9 +129,14 @@ model Article {
   tags  ArticleTag[]
   media ArticleMedia[]
 
+  @@unique([slug, brandId])
   @@index([brandId])
   @@index([categoryId])
 }
+
+////////////////////////////////////////////////////////////
+//// ARTICLE TAG (MANY TO MANY)
+////////////////////////////////////////////////////////////
 
 model ArticleTag {
   articleId Int
@@ -111,6 +148,10 @@ model ArticleTag {
   @@id([articleId, tagId])
 }
 
+////////////////////////////////////////////////////////////
+//// MEDIA
+////////////////////////////////////////////////////////////
+
 model Media {
   id Int @id @default(autoincrement())
 
@@ -121,6 +162,10 @@ model Media {
 
   articles ArticleMedia[]
 }
+
+////////////////////////////////////////////////////////////
+//// ARTICLE MEDIA
+////////////////////////////////////////////////////////////
 
 model ArticleMedia {
   id Int @id @default(autoincrement())
@@ -138,6 +183,10 @@ model ArticleMedia {
   @@index([articleId])
   @@index([mediaId])
 }
+
+////////////////////////////////////////////////////////////
+//// NOTIFICATION
+////////////////////////////////////////////////////////////
 
 model Notification {
   id Int @id @default(autoincrement())
@@ -159,4 +208,5 @@ model Notification {
 
   @@index([isRead])
   @@index([createdAt])
+  @@index([entity, entityId])
 }

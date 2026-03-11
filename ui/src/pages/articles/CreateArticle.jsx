@@ -1,9 +1,16 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ArticleEditor from "../../components/editors/TipTapEditor";
 import ArticlePopUpMedia from "./components/ArticlePopUpMedia";
 import { createArticle, getBrands, getCategories } from "../../services";
+import Toast from "../../components/shared/feedback/Toast";
+import UploadBox from "./components/UploadBox";
+import InputTags from "./components/InputTags";
+import CategorySelect from "./components/CategorySelect";
+import BrandSelect from "./components/BrandSelect";
 
 export default function CreateArticle() {
+  const navigate = useNavigate();
   const [content, setContent] = useState("");
 
   const [brands, setBrands] = useState([]);
@@ -26,6 +33,12 @@ export default function CreateArticle() {
     seoDescription: "",
     canonicalUrl: "",
     tags: [],
+  });
+
+  const [toast, setToast] = useState({
+    show: false,
+    type: "info",
+    message: "",
   });
 
   /* FETCH BRANDS */
@@ -108,11 +121,21 @@ export default function CreateArticle() {
 
       await createArticle(payload);
 
-      alert("Article saved successfully!");
+      setToast({
+        show: true,
+        type: "success",
+        message: "Article Saved Successfully!",
+      });
+
+      // navigate("/articles");
     } catch (error) {
       console.error(error.response?.data || error);
 
-      alert(error.response?.data?.message || "Failed to save article");
+      setToast({
+        show: true,
+        type: "error",
+        message: error.response?.data?.message || "Failed to save article",
+      });
     }
   };
 
@@ -246,120 +269,12 @@ export default function CreateArticle() {
           }}
         />
       )}
-    </div>
-  );
-}
-function BrandSelect({ brands = [], value, onChange }) {
-  return (
-    <select
-      name="brandId"
-      value={value}
-      onChange={onChange}
-      className="os-input"
-    >
-      <option value="">Select Brand</option>
 
-      {brands.map((brand) => (
-        <option key={brand.id} value={brand.id}>
-          {brand.name}
-        </option>
-      ))}
-    </select>
-  );
-}
-
-function CategorySelect({ categories = [], value, onChange }) {
-  return (
-    <select
-      name="categoryId"
-      value={value}
-      onChange={onChange}
-      className="os-input"
-    >
-      <option value="">Select Category</option>
-
-      {categories.map((category) => (
-        <option key={category.id} value={category.id}>
-          {category.name}
-        </option>
-      ))}
-    </select>
-  );
-}
-function UploadBox({ label, image, onClick }) {
-  return (
-    <div
-      onClick={onClick}
-      className="border border-dashed border-[#B08968] rounded p-4 mb-3 text-center cursor-pointer hover:bg-[#f5e9d8]"
-    >
-      {image ? (
-        <img src={image.url} className="w-full h-32 object-cover rounded" />
-      ) : (
-        <>
-          <p className="text-sm mb-2">{label}</p>
-          <p className="text-xs opacity-60">Click to select media</p>
-        </>
-      )}
-    </div>
-  );
-}
-function InputTags({ tags, tagInput, setTagInput, setForm }) {
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-
-      const value = tagInput.trim().toLowerCase();
-
-      if (!value) return;
-
-      setForm((prev) => {
-        if (prev.tags.includes(value)) return prev;
-
-        return {
-          ...prev,
-          tags: [...prev.tags, value],
-        };
-      });
-
-      setTagInput("");
-    }
-
-    if (e.key === "Backspace" && tagInput === "") {
-      setForm((prev) => ({
-        ...prev,
-        tags: prev.tags.slice(0, -1),
-      }));
-    }
-  };
-
-  const removeTag = (tag) => {
-    setForm((prev) => ({
-      ...prev,
-      tags: prev.tags.filter((t) => t !== tag),
-    }));
-  };
-
-  return (
-    <div className="os-input flex flex-wrap gap-2 p-2 mt-2">
-      {tags.map((tag) => (
-        <span
-          key={tag}
-          className="bg-[#e7d6b2] px-2 py-1 text-xs rounded flex items-center gap-1"
-        >
-          {tag}
-
-          <button onClick={() => removeTag(tag)} className="text-red-600">
-            ×
-          </button>
-        </span>
-      ))}
-
-      <input
-        value={tagInput}
-        onChange={(e) => setTagInput(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Type tag then press Enter"
-        className="outline-none flex-1 text-sm bg-transparent"
+      <Toast
+        show={toast.show}
+        type={toast.type}
+        message={toast.message}
+        onClose={() => setToast((prev) => ({ ...prev, show: false }))}
       />
     </div>
   );
